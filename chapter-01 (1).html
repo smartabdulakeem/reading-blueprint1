@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 1 — The Alphabet Symphony | The Reading Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1C1A17;
+    --paper: #FAF7F2;
+    --cream: #F2EDE4;
+    --gold: #B8860B;
+    --gold-light: #F5E6B0;
+    --rust: #C0392B;
+    --forest: #2C5F2E;
+    --muted: #7A7468;
+    --border: rgba(28,26,23,0.12);
+    --radius: 10px;
+    --shadow: 0 2px 16px rgba(28,26,23,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8860B' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ── VOICE BAR ── */
+  .voice-bar { background:#fff; border-bottom:1px solid var(--border); padding:8px 2rem; display:flex; align-items:center; gap:12px; flex-wrap:wrap; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(28,26,23,0.06); }
+  .voice-bar-label { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; white-space:nowrap; flex-shrink:0; }
+  .voice-select { flex:1; min-width:180px; max-width:300px; padding:6px 28px 6px 10px; font-family:'Source Serif 4',serif; font-size:13px; border:1px solid var(--border); border-radius:7px; background:var(--cream); color:var(--ink); cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7468' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; }
+  .voice-select:focus { outline:none; border-color:var(--gold); }
+  .speed-group { display:flex; align-items:center; gap:4px; flex-shrink:0; }
+  .speed-label { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-right:4px; }
+  .speed-btn { padding:5px 12px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid var(--border); border-radius:6px; background:var(--cream); color:var(--muted); cursor:pointer; transition:all .15s; }
+  .speed-btn.active { background:var(--ink); color:var(--gold); border-color:var(--ink); }
+  .speed-btn:hover:not(.active) { border-color:var(--gold); color:var(--gold); }
+  .vtest-btn { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid rgba(184,134,11,0.4); border-radius:16px; background:var(--gold-light); color:var(--gold); cursor:pointer; transition:all .15s; flex-shrink:0; }
+  .vtest-btn:hover { background:#ecd98a; }
+  .vtest-btn.speaking { background:#fde; border-color:var(--rust); color:var(--rust); }
+  .vtest-btn::before { content:"▶"; font-size:9px; }
+  .vtest-btn.speaking::before { content:"◼"; }
+  .voice-status { font-size:11px; color:var(--forest); font-style:italic; flex-shrink:0; opacity:0; transition:opacity .3s; }
+  .voice-status.show { opacity:1; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--ink);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .site-header .brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .site-header .phase-tag {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .chapter-hero {
+    background: var(--ink);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.15) 0%, transparent 70%);
+  }
+  .chapter-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .chapter-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .hero-listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border: 1.5px solid rgba(184,134,11,0.6);
+    border-radius: 24px;
+    background: rgba(184,134,11,0.1);
+    color: var(--gold);
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+  }
+  .hero-listen-btn:hover { background: rgba(184,134,11,0.2); }
+  .hero-listen-btn.speaking { background: rgba(192,57,43,0.2); border-color: var(--rust); color: #ff7b6b; }
+  .hero-listen-btn::before { content: "▶"; font-size: 10px; }
+  .hero-listen-btn.speaking::before { content: "◼"; }
+
+  /* ── NAV ── */
+  .container { max-width: 840px; margin: 0 auto; padding: 2rem 1.25rem; }
+  .tabs-bar {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 2rem;
+    background: var(--cream);
+    padding: 5px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 8px 12px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    background: var(--ink);
+    color: var(--gold);
+    box-shadow: 0 2px 8px rgba(28,26,23,0.2);
+  }
+  .tab-btn:hover:not(.active) { background: rgba(28,26,23,0.06); color: var(--ink); }
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ── SECTION BLOCKS ── */
+  .section-block {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .section-block.gold-left { border-left: 4px solid var(--gold); }
+  .section-block.rust-left { border-left: 4px solid var(--rust); }
+  .section-block.forest-left { border-left: 4px solid var(--forest); }
+  .section-num {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .section-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #3A3730;
+  }
+  .section-body p { margin-bottom: 10px; }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ── LISTEN BTN (inline) ── */
+  .listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .listen-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .listen-btn.speaking { border-color: var(--rust); color: var(--rust); background: #fff5f5; }
+  .listen-btn::before { content: "▶"; font-size: 9px; }
+  .listen-btn.speaking::before { content: "◼"; }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: var(--gold-light);
+    border: 1px solid rgba(184,134,11,0.3);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .callout strong { color: var(--gold); }
+
+  /* ── ALPHABET TABLE ── */
+  .alpha-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+    margin-top: 1rem;
+  }
+  .alpha-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all .15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .alpha-card:hover { border-color: var(--gold); box-shadow: 0 2px 8px rgba(184,134,11,0.15); transform: translateY(-1px); }
+  .alpha-card.speaking { border-color: var(--rust); background: #fff8f8; }
+  .alpha-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    width: 28px;
+    flex-shrink: 0;
+  }
+  .alpha-info { flex: 1; }
+  .alpha-name { font-size: 11px; color: var(--muted); font-style: italic; }
+  .alpha-sound { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .alpha-example { font-size: 11px; color: var(--muted); }
+
+  /* ── BLENDING STEPS ── */
+  .blend-demo {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  .blend-word {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .blend-letter {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--cream);
+    cursor: pointer;
+    transition: all .2s;
+    color: var(--ink);
+  }
+  .blend-letter:hover { border-color: var(--gold); color: var(--gold); }
+  .blend-letter.active { border-color: var(--gold); background: var(--gold-light); color: var(--gold); transform: scale(1.1); }
+  .blend-arrow { font-size: 20px; color: var(--muted); }
+  .blend-steps { display: flex; flex-direction: column; gap: 8px; }
+  .blend-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    background: var(--cream);
+    font-size: 14px;
+    transition: background .15s;
+  }
+  .blend-step.highlight { background: var(--gold-light); }
+  .blend-step-num { font-size: 11px; font-weight: 700; color: var(--gold); width: 20px; flex-shrink: 0; }
+  .blend-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1rem;
+    padding: 9px 20px;
+    background: var(--ink);
+    color: var(--gold);
+    border: none;
+    border-radius: 20px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .blend-btn:hover { opacity: 0.85; }
+
+  /* ── DRILL TABLE ── */
+  .drill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+  .drill-chip {
+    padding: 8px 16px;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--ink);
+    transition: all .15s;
+    user-select: none;
+  }
+  .drill-chip:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-light); }
+  .drill-chip.speaking { border-color: var(--rust); background: #fff5f5; color: var(--rust); }
+
+  /* ── QUIZ ── */
+  .quiz-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    max-width: 580px;
+  }
+  .quiz-prompt {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .quiz-letter-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: center;
+    padding: 1rem;
+    background: var(--cream);
+    border-radius: var(--radius);
+    margin-bottom: 1.2rem;
+    letter-spacing: 4px;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .q-opt {
+    padding: 12px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .q-opt:hover { border-color: var(--gold); background: var(--gold-light); }
+  .q-opt.correct { background: #EAF3DE; border-color: #639922; color: #27500A; }
+  .q-opt.wrong { background: #FCEBEB; border-color: var(--rust); color: #791F1F; }
+  .quiz-feedback {
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    display: none;
+  }
+  .quiz-feedback.ok { background: #EAF3DE; color: #27500A; }
+  .quiz-feedback.err { background: #FCEBEB; color: #791F1F; }
+  .next-btn {
+    padding: 10px 24px;
+    background: var(--ink);
+    color: var(--gold);
+    border: none;
+    border-radius: 20px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+  }
+  .next-btn:hover { opacity: 0.85; }
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.2rem;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .score-track { flex: 1; height: 5px; background: var(--cream); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; background: var(--forest); border-radius: 3px; transition: width .3s; }
+
+  /* ── CONTROLLED TEXT ── */
+  .controlled-text-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--forest);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 0.3px;
+  }
+  .word-tap {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0 2px;
+    transition: background .1s;
+    display: inline-block;
+  }
+  .word-tap:hover { background: var(--gold-light); }
+  .word-tap.speaking { background: var(--gold-light); color: var(--gold); }
+
+  /* ── PROGRESS FOOTER ── */
+  .chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--cream);
+    cursor: default;
+    text-decoration: none;
+  }
+  .nav-link.next-chapter {
+    background: var(--ink);
+    color: var(--gold);
+    border-color: var(--ink);
+    cursor: pointer;
+  }
+  .phase-badge {
+    font-size: 11px;
+    background: var(--gold-light);
+    color: var(--gold);
+    border: 1px solid rgba(184,134,11,0.3);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <span class="brand">The Reading Blueprint</span>
+  <span class="phase-tag">Phase 1 — Sound Foundations</span>
+</header>
+
+<!-- VOICE BAR -->
+<div class="voice-bar">
+  <span class="voice-bar-label">🔊 Voice</span>
+  <select class="voice-select" id="voice-select" onchange="onVoiceChange()"><option value="-1">Loading voices...</option></select>
+  <div class="speed-group">
+    <span class="speed-label">Speed</span>
+    <button class="speed-btn" data-rate="0.6" onclick="setSpeed(0.6,this)">Slow</button>
+    <button class="speed-btn active" data-rate="0.85" onclick="setSpeed(0.85,this)">Normal</button>
+    <button class="speed-btn" data-rate="1.1" onclick="setSpeed(1.1,this)">Fast</button>
+  </div>
+  <button class="vtest-btn" id="vtest-btn" onclick="testVoice(this)">Test voice</button>
+  <span class="voice-status" id="voice-status">✓ Saved</span>
+</div>
+
+<!-- CHAPTER HERO -->
+<div class="chapter-hero">
+  <div class="chapter-number">Chapter 1 of 19</div>
+  <h1 class="chapter-title">The Alphabet Symphony</h1>
+  <p class="chapter-subtitle">Letters, sounds, and your first reading technique</p>
+  <button class="hero-listen-btn" id="hero-btn" onclick="readHero(this)">Listen to introduction</button>
+</div>
+
+<div class="container">
+
+  <!-- TABS -->
+  <div class="tabs-bar">
+    <button class="tab-btn active" onclick="showPanel('learn', this)">① Learn</button>
+    <button class="tab-btn" onclick="showPanel('alphabet', this)">② The Alphabet</button>
+    <button class="tab-btn" onclick="showPanel('drill', this)">③ Sound Drill</button>
+    <button class="tab-btn" onclick="showPanel('blend', this)">④ Blending</button>
+    <button class="tab-btn" onclick="showPanel('quiz', this)">⑤ Quiz</button>
+  </div>
+
+  <!-- ══════════════════ LEARN ══════════════════ -->
+  <div class="panel active" id="panel-learn">
+
+    <div class="section-block gold-left">
+      <div class="section-num">1.1</div>
+      <h2 class="section-title">What Is the Alphabet?
+        <button class="listen-btn" onclick="speakBtn('The English alphabet is a set of 26 symbols called letters. Each letter represents one or more sounds in spoken English. This relationship — the idea that a written mark corresponds to a spoken sound — is called the alphabetic principle, and it is the single most important concept in all of reading. Think of the alphabet as the keys on a piano. No single key makes music on its own, but together, in the right combinations and sequences, they produce every song that has ever been written. Letters work the same way. Individually, they are just shapes. Combined according to the patterns of English, they produce every word, every sentence, every story.', this)">Listen</button>
+      </h2>
+      <div class="section-body">
+        <p>The English alphabet is a set of <strong>26 symbols</strong> called letters. Each letter represents one or more sounds in spoken English. This relationship — the idea that a written mark corresponds to a spoken sound — is called the <strong>alphabetic principle</strong>, and it is the single most important concept in all of reading.</p>
+        <p>Think of the alphabet as the keys on a piano. No single key makes music on its own, but together, in the right combinations and sequences, they produce every song that has ever been written. Letters work the same way. Individually, they are just shapes. Combined according to the patterns of English, they produce every word, every sentence, every story.</p>
+      </div>
+    </div>
+
+    <div class="section-block rust-left">
+      <div class="section-num">1.2 — Critical Distinction</div>
+      <h2 class="section-title">Names vs. Sounds
+        <button class="listen-btn" onclick="speakBtn('Every letter has two things: a name — what you call it when you recite the alphabet — and a sound — what it says inside a word. These are different, and confusing them is one of the most common early mistakes. For example, the letter B is named bee. But in the word bat, it does not say bee — it says its sound: b. Throughout this book, sounds are written between slashes like this: b, s, m.', this)">Listen</button>
+      </h2>
+      <div class="callout">
+        <strong>Critical Distinction:</strong> The letter "B" is <em>named</em> "bee." But in the word "bat," it does not say "bee" — it says its <strong>SOUND: /b/</strong>. Throughout this book, sounds are written between slashes like this: /b/, /s/, /m/.
+      </div>
+      <div class="section-body">
+        <p>Every letter has two things: a <strong>name</strong> (what you call it when you recite the alphabet) and a <strong>sound</strong> (what it says inside a word). These are different, and confusing them is one of the most common early mistakes.</p>
+        <p>Go to the <strong>Alphabet tab</strong> to see every letter's name, sound, and example — and tap any card to hear it spoken aloud.</p>
+      </div>
+    </div>
+
+    <div class="section-block forest-left">
+      <div class="section-num">1.3</div>
+      <h2 class="section-title">Uppercase and Lowercase
+        <button class="listen-btn" onclick="speakBtn('Every letter has two forms: uppercase, also called capital letters, and lowercase, also called small letters. They represent the exact same sounds. The choice between them is a matter of grammar rules you will learn later, not a difference in sound.', this)">Listen</button>
+      </h2>
+      <div class="section-body">
+        <p>Every letter has two forms: <strong>uppercase</strong> (also called capital letters) and <strong>lowercase</strong> (also called small letters). They represent the <em>exact same sounds</em>. The choice between them is a matter of grammar rules — not a difference in sound.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:1rem;">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Uppercase</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:3px;color:var(--ink);">A B C D E F G H I J K L M</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:3px;color:var(--ink);margin-top:6px;">N O P Q R S T U V W X Y Z</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Lowercase</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;letter-spacing:3px;color:var(--muted);">a b c d e f g h i j k l m</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;letter-spacing:3px;color:var(--muted);margin-top:6px;">n o p q r s t u v w x y z</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block gold-left">
+      <div class="section-num">1.4</div>
+      <h2 class="section-title">Controlled Blending: Your First Technique
+        <button class="listen-btn" onclick="speakBtn('Before you can read a word, you need a reliable technique for sounding it out. The method used throughout this book is called Controlled Blending. Here is exactly how it works. Step 1: Look at the first letter only. Say its sound aloud. Step 2: Look at the second letter only. Say its sound aloud. Step 3: Look at the third letter only. Say its sound aloud. Step 4: Now blend all three sounds together smoothly, as if pulling them toward each other. For example, the word sit. Step 1: Look at S, say ssss. Step 2: Look at I, say ih. Step 3: Look at T, say t. Step 4: Blend them together: s... i... t... sit.', this)">Listen</button>
+      </h2>
+      <div class="section-body">
+        <p>The method used throughout this book is called <strong>Controlled Blending</strong>. Here is exactly how it works:</p>
+      </div>
+      <div class="blend-steps" style="margin-top:12px;">
+        <div class="blend-step"><span class="blend-step-num">1</span> Look at the <strong>first letter only</strong>. Say its sound aloud.</div>
+        <div class="blend-step"><span class="blend-step-num">2</span> Look at the <strong>second letter only</strong>. Say its sound aloud.</div>
+        <div class="blend-step"><span class="blend-step-num">3</span> Look at the <strong>third letter only</strong>. Say its sound aloud.</div>
+        <div class="blend-step"><span class="blend-step-num">4</span> <strong>Blend</strong> all three sounds together smoothly.</div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:12px;">Go to the <strong>Blending tab</strong> for an interactive walkthrough.</p>
+    </div>
+
+  </div><!-- /panel-learn -->
+
+  <!-- ══════════════════ ALPHABET ══════════════════ -->
+  <div class="panel" id="panel-alphabet">
+    <div class="section-block gold-left">
+      <div class="section-num">1.2 — Complete Reference</div>
+      <h2 class="section-title">The 26 Letters: Names and Sounds</h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">Tap any letter card to hear its name and sound spoken aloud. The sound is what matters most inside a word.</p>
+      <div class="alpha-grid" id="alpha-grid"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ DRILL ══════════════════ -->
+  <div class="panel" id="panel-drill">
+    <div class="section-block gold-left">
+      <div class="section-num">1.5 — Practice</div>
+      <h2 class="section-title">Letter Sound Drills
+        <button class="listen-btn" onclick="speakBtn('Read each letter below aloud. Say its sound — not its name — as quickly and clearly as you can. Repeat each row three times. Tap any letter chip to hear its sound.',this)">Instructions</button>
+      </h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:1.2rem;">Tap each letter to hear its <em>sound</em> — not its name. Repeat each row three times aloud.</p>
+
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Row 1</div>
+        <div class="drill-grid" id="row1"></div>
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Row 2</div>
+        <div class="drill-grid" id="row2"></div>
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Row 3</div>
+        <div class="drill-grid" id="row3"></div>
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Row 4</div>
+        <div class="drill-grid" id="row4"></div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Row 5 — Mixed Challenge</div>
+        <div class="drill-grid" id="row5"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ BLENDING ══════════════════ -->
+  <div class="panel" id="panel-blend">
+    <div class="section-block gold-left">
+      <div class="section-num">1.4 — Interactive</div>
+      <h2 class="section-title">Controlled Blending Walkthrough</h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:1.2rem;">Tap each letter below to hear its sound, then tap <strong>Blend the word</strong> to hear the full word spoken.</p>
+
+      <div class="blend-demo">
+        <p style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Try it: tap each letter</p>
+        <div class="blend-word" id="blend-display"></div>
+        <div class="blend-steps" id="blend-steps-display" style="margin-bottom:1rem;"></div>
+        <button class="blend-btn" onclick="blendFullWord()">▶ Blend the full word</button>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Practice with these words — tap each letter, then blend:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <button class="drill-chip" onclick="setBlendWord('sit')">sit</button>
+          <button class="drill-chip" onclick="setBlendWord('cat')">cat</button>
+          <button class="drill-chip" onclick="setBlendWord('hot')">hot</button>
+          <button class="drill-chip" onclick="setBlendWord('big')">big</button>
+          <button class="drill-chip" onclick="setBlendWord('run')">run</button>
+          <button class="drill-chip" onclick="setBlendWord('bed')">bed</button>
+          <button class="drill-chip" onclick="setBlendWord('top')">top</button>
+          <button class="drill-chip" onclick="setBlendWord('win')">win</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block forest-left">
+      <div class="section-num">Chapter Summary — Listen</div>
+      <h2 class="section-title">What You Now Know
+        <button class="listen-btn" onclick="speakBtn('Chapter 1 summary. The alphabet has 26 letters, each with a name and a sound. Sounds are written between slashes — for example, b, s, m. Letters come in uppercase and lowercase forms. They represent the same sounds. Controlled Blending is your technique for sounding out words: say each sound separately, then blend them together.', this)">Listen</button>
+      </h2>
+      <div class="blend-steps">
+        <div class="blend-step"><span class="blend-step-num">✓</span> The alphabet has <strong>26 letters</strong>, each with a name and a sound</div>
+        <div class="blend-step"><span class="blend-step-num">✓</span> Sounds are written between slashes: /b/, /s/, /m/</div>
+        <div class="blend-step"><span class="blend-step-num">✓</span> Letters come in <strong>uppercase and lowercase</strong> — same sounds</div>
+        <div class="blend-step"><span class="blend-step-num">✓</span> <strong>Controlled Blending</strong>: sound each letter, then blend them together</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ QUIZ ══════════════════ -->
+  <div class="panel" id="panel-quiz">
+    <div class="section-block gold-left">
+      <div class="section-num">Chapter 1 — Assessment</div>
+      <h2 class="section-title" style="margin-bottom:1.2rem;">Test Yourself</h2>
+      <div class="quiz-card">
+        <div class="score-row">
+          <span id="score-text">Score: 0 / 0</span>
+          <div class="score-track"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
+        </div>
+        <p class="quiz-prompt" id="quiz-prompt">What is the PRIMARY SOUND of this letter?</p>
+        <div class="quiz-letter-display" id="quiz-letter">B</div>
+        <div class="quiz-options" id="quiz-opts"></div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+        <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER NAV -->
+  <div class="chapter-nav">
+    <span class="phase-badge">Phase 1 — Sound Foundations</span>
+    <a class="nav-link next-chapter" href="chapter-02.html">Chapter 2: Vowels & Consonants →</a>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// ── VOICE ENGINE ────────────────────────────────────
+let voices = [];
+let selectedVoiceIndex = -1;
+let speechRate = 0.85;
+
+function loadVoices() {
+  voices = window.speechSynthesis.getVoices();
+  const select = document.getElementById('voice-select');
+  if (!voices.length) return;
+  const engVoices = voices.filter(v => v.lang.startsWith('en'));
+  select.innerHTML = '<option value="-1">🔊 Browser default</option>';
+  engVoices.forEach(v => {
+    const idx = voices.indexOf(v);
+    const opt = document.createElement('option');
+    opt.value = idx;
+    opt.textContent = v.name + ' (' + v.lang + ')' + (v.localService ? ' ★' : '');
+    select.appendChild(opt);
+  });
+  const saved = localStorage.getItem('rbVoiceIndex');
+  const savedRate = localStorage.getItem('rbSpeechRate');
+  if (saved !== null) { select.value = saved; selectedVoiceIndex = parseInt(saved); }
+  if (savedRate !== null) {
+    speechRate = parseFloat(savedRate);
+    document.querySelectorAll('.speed-btn').forEach(btn => {
+      btn.classList.toggle('active', parseFloat(btn.getAttribute('data-rate')) === speechRate);
+    });
+  }
+}
+
+function onVoiceChange() {
+  selectedVoiceIndex = parseInt(document.getElementById('voice-select').value);
+  localStorage.setItem('rbVoiceIndex', selectedVoiceIndex);
+  showVoiceStatus();
+}
+
+function setSpeed(rate, btn) {
+  speechRate = rate;
+  localStorage.setItem('rbSpeechRate', rate);
+  document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  showVoiceStatus();
+}
+
+function showVoiceStatus() {
+  const s = document.getElementById('voice-status');
+  s.classList.add('show');
+  setTimeout(() => s.classList.remove('show'), 2000);
+}
+
+function testVoice(btn) {
+  speakBtn('Hello. This is a test of your selected voice. The quick brown fox jumps over the lazy dog.', btn);
+}
+
+function applyVoice(utt) {
+  utt.rate = speechRate;
+  if (selectedVoiceIndex >= 0 && voices[selectedVoiceIndex]) {
+    utt.voice = voices[selectedVoiceIndex];
+    utt.lang = voices[selectedVoiceIndex].lang;
+  } else { utt.lang = 'en-GB'; }
+}
+
+function speakBtn(text, btn) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.listen-btn.speaking,.hero-listen-btn.speaking,.vtest-btn.speaking').forEach(b => b.classList.remove('speaking'));
+  const utt = new SpeechSynthesisUtterance(text);
+  applyVoice(utt);
+  if (btn) { btn.classList.add('speaking'); utt.onend = () => btn.classList.remove('speaking'); utt.onerror = () => btn.classList.remove('speaking'); }
+  window.speechSynthesis.speak(utt);
+}
+
+function sayWord(word) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(word);
+  applyVoice(utt);
+  utt.rate = speechRate * 0.95;
+  window.speechSynthesis.speak(utt);
+}
+
+if (window.speechSynthesis) {
+  if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+  loadVoices();
+}
+
+function readHero(btn) {
+  speakBtn("Chapter 1: The Alphabet Symphony. This chapter covers the 26 letters of the English alphabet, the difference between a letter's name and its sound, uppercase and lowercase forms, and Controlled Blending — your first technique for reading words.", btn);
+}
+
+// ── PANELS ─────────────────────────────────────────
+function showPanel(id, btn) {
+  window.speechSynthesis && window.speechSynthesis.cancel();
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── ALPHABET DATA ───────────────────────────────────
+const letters = [
+  {l:'A',name:'ay',sound:'/a/',ex:'ant'},
+  {l:'B',name:'bee',sound:'/b/',ex:'bat'},
+  {l:'C',name:'see',sound:'/k/ or /s/',ex:'cat, city'},
+  {l:'D',name:'dee',sound:'/d/',ex:'dog'},
+  {l:'E',name:'ee',sound:'/e/',ex:'egg'},
+  {l:'F',name:'eff',sound:'/f/',ex:'fan'},
+  {l:'G',name:'jee',sound:'/g/ or /j/',ex:'get, gem'},
+  {l:'H',name:'aych',sound:'/h/',ex:'hat'},
+  {l:'I',name:'eye',sound:'/i/',ex:'igloo'},
+  {l:'J',name:'jay',sound:'/j/',ex:'jar'},
+  {l:'K',name:'kay',sound:'/k/',ex:'kit'},
+  {l:'L',name:'ell',sound:'/l/',ex:'leg'},
+  {l:'M',name:'em',sound:'/m/',ex:'mat'},
+  {l:'N',name:'en',sound:'/n/',ex:'net'},
+  {l:'O',name:'oh',sound:'/o/',ex:'on'},
+  {l:'P',name:'pee',sound:'/p/',ex:'pig'},
+  {l:'Q',name:'cue',sound:'/kw/',ex:'quick'},
+  {l:'R',name:'ar',sound:'/r/',ex:'run'},
+  {l:'S',name:'ess',sound:'/s/ or /z/',ex:'sun, his'},
+  {l:'T',name:'tee',sound:'/t/',ex:'top'},
+  {l:'U',name:'you',sound:'/u/',ex:'up'},
+  {l:'V',name:'vee',sound:'/v/',ex:'van'},
+  {l:'W',name:'double-you',sound:'/w/',ex:'win'},
+  {l:'X',name:'ex',sound:'/ks/ or /gz/',ex:'box, exam'},
+  {l:'Y',name:'why',sound:'/y/',ex:'yes'},
+  {l:'Z',name:'zee',sound:'/z/',ex:'zip'}
+];
+
+function buildAlphabet() {
+  const grid = document.getElementById('alpha-grid');
+  letters.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'alpha-card';
+    card.innerHTML = `<div class="alpha-letter">${item.l}</div><div class="alpha-info"><div class="alpha-name">Name: "${item.name}"</div><div class="alpha-sound">${item.sound}</div><div class="alpha-example">${item.ex}</div></div>`;
+    card.onclick = () => {
+      document.querySelectorAll('.alpha-card.speaking').forEach(c => c.classList.remove('speaking'));
+      card.classList.add('speaking');
+      window.speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(`${item.l}. Name: ${item.name}. Sound: ${item.ex}`);
+      applyVoice(utt);
+      utt.onend = () => card.classList.remove('speaking');
+      window.speechSynthesis.speak(utt);
+    };
+    grid.appendChild(card);
+  });
+}
+
+// ── DRILLS ──────────────────────────────────────────
+const rows = [
+  ['m','s','t','p','a','n'],
+  ['b','f','i','d','r','g'],
+  ['h','o','c','l','u','k'],
+  ['v','j','e','w','z','x'],
+  ['b','m','s','t','p','a','n','i']
+];
+
+const letterSounds = {
+  a:'a as in ant',b:'b as in bat',c:'k as in cat',d:'d as in dog',e:'e as in egg',
+  f:'f as in fan',g:'g as in get',h:'h as in hat',i:'i as in igloo',j:'j as in jar',
+  k:'k as in kit',l:'l as in leg',m:'m as in mat',n:'n as in net',o:'o as in on',
+  p:'p as in pig',q:'kw as in quick',r:'r as in run',s:'s as in sun',t:'t as in top',
+  u:'u as in up',v:'v as in van',w:'w as in win',x:'ks as in box',y:'y as in yes',z:'z as in zip'
+};
+
+function buildDrills() {
+  rows.forEach((row, i) => {
+    const el = document.getElementById('row' + (i+1));
+    row.forEach(letter => {
+      const chip = document.createElement('div');
+      chip.className = 'drill-chip';
+      chip.textContent = letter.toUpperCase();
+      chip.onclick = () => {
+        document.querySelectorAll('.drill-chip.speaking').forEach(c => c.classList.remove('speaking'));
+        chip.classList.add('speaking');
+        window.speechSynthesis.cancel();
+        const utt = new SpeechSynthesisUtterance(letterSounds[letter] || letter);
+        applyVoice(utt);
+        utt.onend = () => chip.classList.remove('speaking');
+        window.speechSynthesis.speak(utt);
+      };
+      el.appendChild(chip);
+    });
+  });
+}
+
+// ── BLENDING ────────────────────────────────────────
+let currentBlendWord = 'sit';
+let blendStep = -1;
+
+function setBlendWord(word) {
+  currentBlendWord = word;
+  blendStep = -1;
+  renderBlend();
+}
+
+function renderBlend() {
+  const display = document.getElementById('blend-display');
+  const stepsEl = document.getElementById('blend-steps-display');
+  display.innerHTML = '';
+  currentBlendWord.split('').forEach((ch, i) => {
+    const el = document.createElement('div');
+    el.className = 'blend-letter' + (i === blendStep ? ' active' : '');
+    el.textContent = ch.toUpperCase();
+    el.onclick = () => {
+      blendStep = i;
+      renderBlend();
+      window.speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(letterSounds[ch] || ch);
+      applyVoice(utt);
+      utt.rate = speechRate * 0.88;
+      window.speechSynthesis.speak(utt);
+    };
+    display.appendChild(el);
+  });
+  stepsEl.innerHTML = '';
+  currentBlendWord.split('').forEach((ch, i) => {
+    const step = document.createElement('div');
+    step.className = 'blend-step' + (i === blendStep ? ' highlight' : '');
+    step.innerHTML = `<span class="blend-step-num">${i+1}</span> Look at "<strong>${ch.toUpperCase()}</strong>" → say its sound: <em>${letterSounds[ch] || ch}</em>`;
+    stepsEl.appendChild(step);
+  });
+}
+
+function blendFullWord() {
+  blendStep = -1;
+  renderBlend();
+  sayWord(currentBlendWord);
+}
+
+// ── QUIZ ─────────────────────────────────────────────
+const quizData = [
+  {letter:'B', correct:'/b/ as in bat', options:['/b/ as in bat','/bee/ — letter name','/p/ as in pig','/v/ as in van']},
+  {letter:'A', correct:'/a/ as in ant', options:['/a/ as in ant','ay — letter name','/e/ as in egg','/o/ as in on']},
+  {letter:'M', correct:'/m/ as in mat', options:['/m/ as in mat','/em/ — letter name','/n/ as in net','/w/ as in win']},
+  {letter:'S', correct:'/s/ as in sun', options:['/s/ as in sun','/ess/ — letter name','/z/ as in zip','/sh/ as in ship']},
+  {letter:'T', correct:'/t/ as in top', options:['/t/ as in top','/d/ as in dog','/tee/ — letter name','/k/ as in cat']},
+  {letter:'P', correct:'/p/ as in pig', options:['/p/ as in pig','/b/ as in bat','/pee/ — letter name','/f/ as in fan']},
+  {letter:'F', correct:'/f/ as in fan', options:['/f/ as in fan','/v/ as in van','/eff/ — letter name','/ph/ as in phone']},
+  {letter:'H', correct:'/h/ as in hat', options:['/h/ as in hat','/aych/ — letter name','silent','/w/ as in win']},
+  {letter:'I', correct:'/i/ as in igloo', options:['/i/ as in igloo','eye — letter name','/ee/ as in feet','/a/ as in ant']},
+  {letter:'R', correct:'/r/ as in run', options:['/r/ as in run','/ar/ — letter name','/w/ as in win','/l/ as in leg']},
+];
+
+let qi=0, score=0, answered=false;
+let order = shuffle([...Array(quizData.length).keys()]);
+
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+
+function renderQuestion(){
+  answered=false;
+  const q = quizData[order[qi]];
+  document.getElementById('quiz-letter').textContent = q.letter;
+  document.getElementById('quiz-prompt').textContent = 'What is the PRIMARY SOUND of this letter?';
+  const opts = document.getElementById('quiz-opts');
+  opts.innerHTML = '';
+  const shuffled = shuffle([...q.options]);
+  shuffled.forEach(opt => {
+    const b = document.createElement('button');
+    b.className = 'q-opt'; b.textContent = opt;
+    b.onclick = () => checkAnswer(opt, q.correct, b, q.letter);
+    opts.appendChild(b);
+  });
+  document.getElementById('quiz-feedback').style.display = 'none';
+  document.getElementById('next-btn').style.display = 'none';
+  setTimeout(() => sayWord(q.letter), 300);
+
+}
+
+function checkAnswer(chosen, correct, btn, letter){
+  if(answered) return;
+  answered = true;
+  const fb = document.getElementById('quiz-feedback');
+  if(chosen === correct){
+    score++;
+    btn.classList.add('correct');
+    fb.className = 'quiz-feedback ok';
+    fb.textContent = '✓ Correct! The letter ' + letter + ' says ' + correct;
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.q-opt').forEach(b => { if(b.textContent===correct) b.classList.add('correct'); });
+    fb.className = 'quiz-feedback err';
+    fb.textContent = '✗ The correct sound is ' + correct + '. Remember: the sound is different from the letter\'s name!';
+  }
+  fb.style.display = 'block';
+  speakBtn(fb.textContent.replace('✓ ','').replace('✗ ',''), null);
+  document.getElementById('next-btn').style.display = 'inline-block';
+  const total = qi+1;
+  document.getElementById('score-text').textContent = 'Score: ' + score + ' / ' + total;
+  document.getElementById('score-fill').style.width = Math.round(score/total*100)+'%';
+}
+
+function nextQuestion(){
+  qi++;
+  if(qi >= order.length){ qi=0; score=0; order=shuffle([...Array(quizData.length).keys()]); }
+  renderQuestion();
+}
+
+// ── INIT ─────────────────────────────────────────────
+buildAlphabet();
+buildDrills();
+setBlendWord('sit');
+renderQuestion();
+</script>
+</body>
+</html>
