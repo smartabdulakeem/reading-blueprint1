@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Reading Blueprint — Course Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1C1A17;--paper:#FAF7F2;--cream:#F2EDE4;--gold:#B8860B;--gold-light:#F5E6B0;--gold-mid:#D4A017;--rust:#C0392B;--forest:#2C5F2E;--blue:#1A4A7A;--muted:#7A7468;--border:rgba(28,26,23,0.12);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:var(--ink);min-height:100vh}
+.hero{background:var(--ink);position:relative;overflow:hidden;padding:4rem 2rem 3rem;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(184,134,11,0.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(44,95,46,0.08) 0%,transparent 50%)}
+.hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B8860B' fill-rule='evenodd'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E")}
+.hero-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:4px;text-transform:uppercase;border:1px solid rgba(184,134,11,0.4);padding:5px 16px;border-radius:20px;margin-bottom:1.5rem;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,7vw,72px);font-weight:900;color:#fff;line-height:1.05;margin-bottom:1rem;position:relative}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 2rem;line-height:1.7;font-style:italic;position:relative}
+.hero-divider{width:60px;height:2px;background:var(--gold);margin:0 auto 2rem;position:relative}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;position:relative}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold);display:block}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase}
+.voice-bar{background:#fff;border-bottom:1px solid var(--border);padding:8px 2rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(28,26,23,0.06)}
+.voice-bar-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.voice-select{flex:1;min-width:160px;max-width:280px;padding:6px 28px 6px 10px;font-family:'Source Serif 4',serif;font-size:13px;border:1px solid var(--border);border-radius:7px;background:var(--cream);color:var(--ink);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7468' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.voice-select:focus{outline:none;border-color:var(--gold)}
+.speed-group{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.speed-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-right:4px}
+.speed-btn{padding:5px 12px;font-family:'Source Serif 4',serif;font-size:12px;font-weight:600;border:1px solid var(--border);border-radius:6px;background:var(--cream);color:var(--muted);cursor:pointer;transition:all .15s}
+.speed-btn.active{background:var(--ink);color:var(--gold);border-color:var(--ink)}
+.speed-btn:hover:not(.active){border-color:var(--gold);color:var(--gold)}
+.vtest-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-family:'Source Serif 4',serif;font-size:12px;font-weight:600;border:1px solid rgba(184,134,11,0.4);border-radius:16px;background:var(--gold-light);color:var(--gold);cursor:pointer;transition:all .15s;flex-shrink:0}
+.vtest-btn:hover{background:#ecd98a}
+.vtest-btn.speaking{background:#fde;border-color:var(--rust);color:var(--rust)}
+.vtest-btn::before{content:"▶";font-size:9px}
+.vtest-btn.speaking::before{content:"◼"}
+.voice-status{font-size:11px;color:var(--forest);font-style:italic;flex-shrink:0;opacity:0;transition:opacity .3s}
+.voice-status.show{opacity:1}
+.word-tester-section{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding:2.5rem 2rem}
+.word-tester-inner{max-width:760px;margin:0 auto}
+.word-tester-title{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:6px}
+.word-tester-sub{font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:1.5rem;font-style:italic}
+.tester-input-row{display:flex;gap:10px;margin-bottom:1.25rem;flex-wrap:wrap}
+.tester-input{flex:1;min-width:200px;padding:12px 16px;font-family:'Playfair Display',serif;font-size:20px;border:1.5px solid rgba(184,134,11,0.4);border-radius:10px;background:rgba(255,255,255,0.06);color:#fff;outline:none;transition:border-color .2s;letter-spacing:1px}
+.tester-input::placeholder{color:rgba(255,255,255,0.25);font-size:16px}
+.tester-input:focus{border-color:var(--gold);background:rgba(255,255,255,0.1)}
+.tester-say-btn{padding:12px 28px;background:var(--gold);color:var(--ink);border:none;border-radius:10px;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.tester-say-btn:hover{background:var(--gold-mid);transform:translateY(-1px)}
+.tester-say-btn.speaking{background:var(--rust);color:#fff}
+.tester-say-btn::before{content:"▶";font-size:12px}
+.tester-say-btn.speaking::before{content:"◼"}
+.tester-chips-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.tester-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tester-chip{padding:7px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(184,134,11,0.25);border-radius:7px;font-family:'Playfair Display',serif;font-size:15px;color:rgba(255,255,255,0.7);cursor:pointer;transition:all .15s;user-select:none}
+.tester-chip:hover{background:rgba(184,134,11,0.2);border-color:var(--gold);color:var(--gold)}
+.tester-chip.speaking{background:rgba(184,134,11,0.25);border-color:var(--gold);color:var(--gold)}
+.container{max-width:900px;margin:0 auto;padding:3rem 1.25rem}
+.phase-header{display:flex;align-items:center;gap:16px;margin-bottom:1.25rem;margin-top:2.5rem}
+.phase-header:first-child{margin-top:0}
+.phase-num{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;white-space:nowrap}
+.phase-line{flex:1;height:1px;background:var(--border)}
+.phase-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.phase-desc{font-size:13px;color:var(--muted);font-style:italic}
+.chapters-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:1rem}
+.chapter-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.4rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px;transition:all .18s;position:relative;overflow:hidden;cursor:pointer}
+.chapter-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--border);transition:background .18s}
+.chapter-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(28,26,23,0.1);border-color:rgba(184,134,11,0.3)}
+.chapter-card:hover::before{background:var(--gold)}
+.chapter-card.phase-1::before{background:var(--gold)}
+.chapter-card.phase-2::before{background:var(--forest)}
+.chapter-card.phase-3::before{background:var(--blue)}
+.chapter-card.phase-4::before{background:var(--rust)}
+.chapter-card.coming-soon{opacity:0.5;cursor:default}
+.chapter-card.coming-soon:hover{transform:none;box-shadow:none;border-color:var(--border)}
+.ch-num{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.ch-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.3}
+.ch-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.ch-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.ch-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;letter-spacing:0.5px}
+.tag-audio{background:#E0EAF5;color:var(--blue)}
+.tag-drill{background:var(--gold-light);color:var(--gold)}
+.tag-quiz{background:#EAF3DE;color:var(--forest)}
+.tag-coming{background:var(--cream);color:var(--muted)}
+.ch-arrow{position:absolute;right:1.2rem;top:50%;transform:translateY(-50%);font-size:16px;color:var(--muted);opacity:0;transition:all .18s}
+.chapter-card:hover .ch-arrow{opacity:1;transform:translateY(-50%) translateX(3px)}
+.about-strip{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 2rem;margin-top:3rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+@media(max-width:600px){.about-strip{grid-template-columns:1fr}.chapters-grid{grid-template-columns:1fr}}
+.about-item{text-align:center}
+.about-icon{font-size:24px;margin-bottom:8px}
+.about-label{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:4px}
+.about-text{font-size:13px;color:var(--muted);line-height:1.6}
+footer{background:var(--ink);color:rgba(255,255,255,0.4);text-align:center;padding:1.5rem;font-size:13px;font-style:italic;border-top:3px solid var(--gold)}
+footer strong{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-tag">By Abdul-Akeem Smart</div>
+  <h1>The <em>Reading</em><br>Blueprint</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">A complete, systematic guide from first sounds to full fluency — built on decades of reading science.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">19</span><span class="hero-stat-label">Chapters</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Phases</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">44</span><span class="hero-stat-label">Phonemes</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">∞</span><span class="hero-stat-label">Words Unlocked</span></div>
+  </div>
+</div>
+
+<div class="voice-bar">
+  <span class="voice-bar-label">🔊 Voice</span>
+  <select class="voice-select" id="voice-select" onchange="onVoiceChange()"><option value="-1">Loading voices...</option></select>
+  <div class="speed-group">
+    <span class="speed-label">Speed</span>
+    <button class="speed-btn" data-rate="0.6" onclick="setSpeed(0.6,this)">Slow</button>
+    <button class="speed-btn active" data-rate="0.85" onclick="setSpeed(0.85,this)">Normal</button>
+    <button class="speed-btn" data-rate="1.1" onclick="setSpeed(1.1,this)">Fast</button>
+  </div>
+  <button class="vtest-btn" id="vtest-btn" onclick="testVoice(this)">Test voice</button>
+  <span class="voice-status" id="voice-status">✓ Saved</span>
+</div>
+
+<div class="word-tester-section">
+  <div class="word-tester-inner">
+    <h2 class="word-tester-title">Word Tester</h2>
+    <p class="word-tester-sub">Type any word and tap Hear It — or tap any word below to hear it spoken aloud using your selected voice and speed.</p>
+    <div class="tester-input-row">
+      <input class="tester-input" id="tester-input" type="text" placeholder="Type any word here..." onkeydown="if(event.key==='Enter') hearTypedWord()" autocomplete="off" autocorrect="off" spellcheck="false"/>
+      <button class="tester-say-btn" id="tester-say-btn" onclick="hearTypedWord()">Hear It</button>
+    </div>
+    <div class="tester-chips-label">Or tap a word below</div>
+    <div class="tester-chips" id="tester-chips"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="phase-header"><span class="phase-num">Phase 1</span><div class="phase-line"></div></div>
+  <div style="margin-bottom:1rem;"><div class="phase-title">Sound Foundations</div><div class="phase-desc">Chapters 1–5 · Consonants, Vowels, CVC Patterns & Sight Words</div></div>
+  <div class="chapters-grid">
+    <a class="chapter-card phase-1" href="chapter-01.html"><span class="ch-num">Chapter 1</span><span class="ch-title">The Alphabet Symphony</span><span class="ch-desc">26 letters, names vs. sounds, uppercase & lowercase, Controlled Blending</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Drill</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
+    <a class="chapter-card phase-1" href="chapter-02.html"><span class="ch-num">Chapter 2</span><span class="ch-title">Vowels & Consonants</span><span class="ch-desc">The two families, short vowel sounds, mouth positions, voiced vs. unvoiced</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Sort Activity</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
+    <a class="chapter-card phase-1 coming-soon" href="#"><span class="ch-num">Chapter 3</span><span class="ch-title">Short Vowels & CVC Pattern</span><span class="ch-desc">The most fundamental word architecture — Consonant-Vowel-Consonant</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-1 coming-soon" href="#"><span class="ch-num">Chapter 4</span><span class="ch-title">Long Vowel Sounds</span><span class="ch-desc">Silent E pattern, vowel teams, and the magic of long vowels</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-1 coming-soon" href="#"><span class="ch-num">Chapter 5</span><span class="ch-title">Sight Words</span><span class="ch-desc">220 high-frequency words — the foundation of reading speed</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+  </div>
+
+  <div class="phase-header"><span class="phase-num">Phase 2</span><div class="phase-line"></div></div>
+  <div style="margin-bottom:1rem;"><div class="phase-title">Cracking the Code</div><div class="phase-desc">Chapters 6–10 · Blends, Digraphs, Phonograms & Syllable Types</div></div>
+  <div class="chapters-grid">
+    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 6</span><span class="ch-title">Consonant Blends</span><span class="ch-desc">L-blends, R-blends, S-blends and three-letter blends</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 7</span><span class="ch-title">Digraphs</span><span class="ch-desc">CH, SH, TH, WH, PH — when two letters make one new sound</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 8</span><span class="ch-title">Phonograms</span><span class="ch-desc">The master pattern library — word families that unlock thousands of words</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 9</span><span class="ch-title">Syllable Types</span><span class="ch-desc">The six structures of every English word</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 10</span><span class="ch-title">Silent Letters & Irregular Patterns</span><span class="ch-desc">The fingerprints of history — why English has silent letters</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+  </div>
+
+  <div class="phase-header"><span class="phase-num">Phase 3</span><div class="phase-line"></div></div>
+  <div style="margin-bottom:1rem;"><div class="phase-title">Architecture of Meaning</div><div class="phase-desc">Chapters 11–15 · Morphemes, Grammar, Sentences & Composition</div></div>
+  <div class="chapters-grid">
+    <a class="chapter-card phase-3 coming-soon" href="#"><span class="ch-num">Chapter 11</span><span class="ch-title">Morphemes</span><span class="ch-desc">Prefixes, suffixes, and root words — the meaning units of language</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-3 coming-soon" href="#"><span class="ch-num">Chapter 12</span><span class="ch-title">Parts of Speech</span><span class="ch-desc">The eight parts of speech and how they build meaning</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-3 coming-soon" href="#"><span class="ch-num">Chapter 13</span><span class="ch-title">Sentence Mechanics</span><span class="ch-desc">Building powerful sentences from kernel to complex</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-3 coming-soon" href="#"><span class="ch-num">Chapter 14</span><span class="ch-title">Punctuation</span><span class="ch-desc">The music notation of writing — full punctuation reference</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-3 coming-soon" href="#"><span class="ch-num">Chapter 15</span><span class="ch-title">Paragraph Structure</span><span class="ch-desc">The Dicto-Comp method and the anatomy of a paragraph</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+  </div>
+
+  <div class="phase-header"><span class="phase-num">Phase 4</span><div class="phase-line"></div></div>
+  <div style="margin-bottom:1rem;"><div class="phase-title">Achieving Fluency</div><div class="phase-desc">Chapters 16–19 · Comprehension, Prosody & Advanced Reading</div></div>
+  <div class="chapters-grid">
+    <a class="chapter-card phase-4 coming-soon" href="#"><span class="ch-num">Chapter 16</span><span class="ch-title">Reading Comprehension</span><span class="ch-desc">Five levels of understanding — from literal to applied</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-4 coming-soon" href="#"><span class="ch-num">Chapter 17</span><span class="ch-title">Prosody & Intonation</span><span class="ch-desc">The music of reading — rhythm, stress, pitch, and phrasing</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-4 coming-soon" href="#"><span class="ch-num">Chapter 18</span><span class="ch-title">Vocabulary Development</span><span class="ch-desc">Building your word wealth — the four vocabulary tiers</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-4 coming-soon" href="#"><span class="ch-num">Chapter 19</span><span class="ch-title">The Expert Reader</span><span class="ch-desc">Metacognition, critical reading, and a lifelong reading programme</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+  </div>
+
+  <div class="about-strip">
+    <div class="about-item"><div class="about-icon">🔊</div><div class="about-label">Audio on Everything</div><div class="about-text">Tap any word, button, or rule to hear it spoken aloud in your chosen voice.</div></div>
+    <div class="about-item"><div class="about-icon">📖</div><div class="about-label">Science of Reading</div><div class="about-text">Every method is grounded in 50+ years of research on how humans learn to read.</div></div>
+    <div class="about-item"><div class="about-icon">✏️</div><div class="about-label">Never Skip Chapters</div><div class="about-text">Each chapter builds on the last. Work through in order for best results.</div></div>
+  </div>
+
+</div>
+
+<footer><strong>The Reading Blueprint</strong> · By Abdul-Akeem Smart · A complete, systematic guide from first sounds to full fluency</footer>
+
+<script>
+let voices=[],selectedVoiceIndex=-1,speechRate=0.85;
+function loadVoices(){
+  voices=window.speechSynthesis.getVoices();
+  const select=document.getElementById('voice-select');
+  if(!voices.length)return;
+  const eng=voices.filter(v=>v.lang.startsWith('en'));
+  select.innerHTML='<option value="-1">🔊 Browser default</option>';
+  eng.forEach(v=>{
+    const idx=voices.indexOf(v);
+    const opt=document.createElement('option');
+    opt.value=idx;
+    opt.textContent=v.name+' ('+v.lang+')'+(v.localService?' ★':'');
+    select.appendChild(opt);
+  });
+  const saved=localStorage.getItem('rbVoiceIndex');
+  const savedRate=localStorage.getItem('rbSpeechRate');
+  if(saved!==null){select.value=saved;selectedVoiceIndex=parseInt(saved);}
+  if(savedRate!==null){
+    speechRate=parseFloat(savedRate);
+    document.querySelectorAll('.speed-btn').forEach(btn=>{
+      btn.classList.toggle('active',parseFloat(btn.getAttribute('data-rate'))===speechRate);
+    });
+  }
+}
+function onVoiceChange(){selectedVoiceIndex=parseInt(document.getElementById('voice-select').value);localStorage.setItem('rbVoiceIndex',selectedVoiceIndex);showVoiceStatus();}
+function setSpeed(rate,btn){speechRate=rate;localStorage.setItem('rbSpeechRate',rate);document.querySelectorAll('.speed-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');showVoiceStatus();}
+function showVoiceStatus(){const s=document.getElementById('voice-status');s.classList.add('show');setTimeout(()=>s.classList.remove('show'),2000);}
+function applyVoice(utt){utt.rate=speechRate;if(selectedVoiceIndex>=0&&voices[selectedVoiceIndex]){utt.voice=voices[selectedVoiceIndex];utt.lang=voices[selectedVoiceIndex].lang;}else{utt.lang='en-GB';}}
+function speakText(text,btn){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.speaking').forEach(b=>b.classList.remove('speaking'));
+  const utt=new SpeechSynthesisUtterance(text);
+  applyVoice(utt);
+  if(btn){btn.classList.add('speaking');utt.onend=()=>btn.classList.remove('speaking');utt.onerror=()=>btn.classList.remove('speaking');}
+  window.speechSynthesis.speak(utt);
+}
+function testVoice(btn){speakText('Hello. This is a test of your selected voice and speed. Welcome to The Reading Blueprint.',btn);}
+const sampleWords=['alphabet','vowel','consonant','blend','phonics','syllable','reading','fluency','digraph','rhyme','kneel','psychology','thumb','though','salmon','knight','debt','wrong','calm','honest'];
+function buildTesterChips(){
+  const el=document.getElementById('tester-chips');
+  sampleWords.forEach(word=>{
+    const chip=document.createElement('div');
+    chip.className='tester-chip';
+    chip.textContent=word;
+    chip.onclick=()=>{
+      document.querySelectorAll('.tester-chip.speaking').forEach(c=>c.classList.remove('speaking'));
+      chip.classList.add('speaking');
+      document.getElementById('tester-input').value=word;
+      const utt=new SpeechSynthesisUtterance(word);
+      applyVoice(utt);utt.rate=speechRate*0.92;
+      utt.onend=()=>chip.classList.remove('speaking');
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utt);
+    };
+    el.appendChild(chip);
+  });
+}
+function hearTypedWord(){
+  const input=document.getElementById('tester-input');
+  const btn=document.getElementById('tester-say-btn');
+  const word=input.value.trim();
+  if(!word)return;
+  speakText(word,btn);
+}
+if(window.speechSynthesis){
+  if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=loadVoices;
+  loadVoices();
+}
+buildTesterChips();
+</script>
+</body>
+</html>
