@@ -29,22 +29,29 @@
   }
 
   /* ── VOICE BAR ── */
-  .voice-bar { background:#fff; border-bottom:1px solid var(--border); padding:8px 2rem; display:flex; align-items:center; gap:12px; flex-wrap:wrap; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(28,26,23,0.06); }
-  .voice-bar-label { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; white-space:nowrap; flex-shrink:0; }
-  .voice-select { flex:1; min-width:180px; max-width:300px; padding:6px 28px 6px 10px; font-family:'Source Serif 4',serif; font-size:13px; border:1px solid var(--border); border-radius:7px; background:var(--cream); color:var(--ink); cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7468' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; }
-  .voice-select:focus { outline:none; border-color:var(--gold); }
+  .voice-bar { background:var(--ink); padding:8px 1.5rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:sticky; top:0; z-index:200; box-shadow:0 2px 12px rgba(28,26,23,0.3); }
+  .vb-brand { font-family:'Playfair Display',serif; color:var(--gold); font-size:13px; letter-spacing:1.5px; text-transform:uppercase; flex-shrink:0; margin-right:6px; }
+  .voice-bar-label { font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; white-space:nowrap; flex-shrink:0; }
+  .voice-select { min-width:150px; max-width:260px; padding:5px 26px 5px 9px; font-family:'Source Serif 4',serif; font-size:13px; border:1px solid rgba(255,255,255,0.15); border-radius:7px; background:rgba(255,255,255,0.08); color:#fff; cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8860B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 9px center; }
+  .voice-select option { background:#1C1A17; color:#fff; }
   .speed-group { display:flex; align-items:center; gap:4px; flex-shrink:0; }
-  .speed-label { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-right:4px; }
-  .speed-btn { padding:5px 12px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid var(--border); border-radius:6px; background:var(--cream); color:var(--muted); cursor:pointer; transition:all .15s; }
-  .speed-btn.active { background:var(--ink); color:var(--gold); border-color:var(--ink); }
+  .speed-label { font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:1px; text-transform:uppercase; margin-right:3px; }
+  .speed-btn { padding:4px 10px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid rgba(255,255,255,0.15); border-radius:6px; background:transparent; color:rgba(255,255,255,0.5); cursor:pointer; transition:all .15s; }
+  .speed-btn.active { background:var(--gold); color:var(--ink); border-color:var(--gold); }
   .speed-btn:hover:not(.active) { border-color:var(--gold); color:var(--gold); }
-  .vtest-btn { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid rgba(184,134,11,0.4); border-radius:16px; background:var(--gold-light); color:var(--gold); cursor:pointer; transition:all .15s; flex-shrink:0; }
-  .vtest-btn:hover { background:#ecd98a; }
-  .vtest-btn.speaking { background:#fde; border-color:var(--rust); color:var(--rust); }
+  .vtest-btn { display:inline-flex; align-items:center; gap:5px; padding:5px 13px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid rgba(184,134,11,0.5); border-radius:16px; background:rgba(184,134,11,0.12); color:var(--gold); cursor:pointer; transition:all .15s; flex-shrink:0; }
+  .vtest-btn:hover { background:rgba(184,134,11,0.22); }
+  .vtest-btn.speaking { background:rgba(192,57,43,0.2); border-color:var(--rust); color:#ff7b6b; }
   .vtest-btn::before { content:"▶"; font-size:9px; }
   .vtest-btn.speaking::before { content:"◼"; }
-  .voice-status { font-size:11px; color:var(--forest); font-style:italic; flex-shrink:0; opacity:0; transition:opacity .3s; }
+  .voice-status { font-size:11px; color:var(--gold); font-style:italic; flex-shrink:0; opacity:0; transition:opacity .3s; }
   .voice-status.show { opacity:1; }
+  /* big-listen button */
+  .big-listen { display:flex; align-items:center; gap:8px; padding:10px 18px; font-family:'Source Serif 4',serif; font-size:14px; font-weight:700; border:2px solid var(--gold); border-radius:20px; background:var(--gold-light); color:var(--ink); cursor:pointer; transition:all .2s; margin-top:12px; width:fit-content; }
+  .big-listen:hover { background:#EDD97A; }
+  .big-listen.speaking { background:#fce4e4; border-color:var(--rust); color:var(--rust); }
+  .big-listen::before { content:"🔊"; font-size:14px; }
+  .big-listen.speaking::before { content:"⏹"; }
 
   /* ── HEADER ── */
   .site-header {
@@ -507,14 +514,9 @@
 </head>
 <body>
 
-<!-- SITE HEADER -->
-<header class="site-header">
-  <span class="brand">The Reading Blueprint</span>
-  <span class="phase-tag">Phase 1 — Sound Foundations</span>
-</header>
-
 <!-- VOICE BAR -->
 <div class="voice-bar">
+  <span class="vb-brand">The Reading Blueprint</span>
   <span class="voice-bar-label">🔊 Voice</span>
   <select class="voice-select" id="voice-select" onchange="onVoiceChange()"><option value="-1">Loading voices...</option></select>
   <div class="speed-group">
@@ -558,6 +560,7 @@
         <p>The English alphabet is a set of <strong>26 symbols</strong> called letters. Each letter represents one or more sounds in spoken English. This relationship — the idea that a written mark corresponds to a spoken sound — is called the <strong>alphabetic principle</strong>, and it is the single most important concept in all of reading.</p>
         <p>Think of the alphabet as the keys on a piano. No single key makes music on its own, but together, in the right combinations and sequences, they produce every song that has ever been written. Letters work the same way. Individually, they are just shapes. Combined according to the patterns of English, they produce every word, every sentence, every story.</p>
       </div>
+      <button class="big-listen" onclick="speakBtn('The English alphabet is a set of 26 symbols called letters. Each letter represents one or more sounds in spoken English. This relationship — the idea that a written mark corresponds to a spoken sound — is called the alphabetic principle. It is the single most important concept in all of reading. Think of the alphabet as the keys on a piano. Together, in the right combinations, they produce every word, every sentence, every story.',this)">Listen to full explanation</button>
     </div>
 
     <div class="section-block rust-left">
@@ -572,6 +575,7 @@
         <p>Every letter has two things: a <strong>name</strong> (what you call it when you recite the alphabet) and a <strong>sound</strong> (what it says inside a word). These are different, and confusing them is one of the most common early mistakes.</p>
         <p>Go to the <strong>Alphabet tab</strong> to see every letter's name, sound, and example — and tap any card to hear it spoken aloud.</p>
       </div>
+      <button class="big-listen" onclick="speakBtn('Every letter has two things. A name — what you call it when you recite the alphabet. And a sound — what it says inside a word. These are different. For example: the letter B is named bee. But in the word bat, it does not say bee. It says its sound: b. This is one of the most common early mistakes. Throughout this book, sounds are written between slashes, like this: b, s, m.',this)">Listen to Names vs Sounds</button>
     </div>
 
     <div class="section-block forest-left">
@@ -594,6 +598,7 @@
           <div style="font-family:'Playfair Display',serif;font-size:18px;letter-spacing:3px;color:var(--muted);margin-top:6px;">n o p q r s t u v w x y z</div>
         </div>
       </div>
+      <button class="big-listen" onclick="speakBtn('Every letter has two forms: uppercase, also called capital letters, and lowercase, also called small letters. They represent the exact same sounds. For example: uppercase A and lowercase a make the same sound. Uppercase B and lowercase b make the same sound. The choice between uppercase and lowercase is a matter of grammar rules — not a difference in sound.',this)">Listen to explanation</button>
     </div>
 
     <div class="section-block gold-left">
@@ -611,6 +616,7 @@
         <div class="blend-step"><span class="blend-step-num">4</span> <strong>Blend</strong> all three sounds together smoothly.</div>
       </div>
       <p style="font-size:13px;color:var(--muted);margin-top:12px;">Go to the <strong>Blending tab</strong> for an interactive walkthrough.</p>
+      <button class="big-listen" onclick="speakBtn('Controlled Blending. Step 1: Look at the first letter only. Say its sound aloud. Step 2: Look at the second letter only. Say its sound aloud. Step 3: Look at the third letter only. Say its sound aloud. Step 4: Now blend all three sounds together smoothly. Example — the word sit. S says ssss. I says ih. T says t. Blend: s — i — t — sit.',this)">Listen to Controlled Blending</button>
     </div>
 
   </div><!-- /panel-learn -->
@@ -619,7 +625,9 @@
   <div class="panel" id="panel-alphabet">
     <div class="section-block gold-left">
       <div class="section-num">1.2 — Complete Reference</div>
-      <h2 class="section-title">The 26 Letters: Names and Sounds</h2>
+      <h2 class="section-title">The 26 Letters: Names and Sounds
+        <button class="listen-btn" onclick="speakBtn('The 26 Letters. Every letter has a name and a sound. Tap any card to hear both. Remember: the sound is what the letter says inside a word — not its name.',this)">Listen to title</button>
+      </h2>
       <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">Tap any letter card to hear its name and sound spoken aloud. The sound is what matters most inside a word.</p>
       <div class="alpha-grid" id="alpha-grid"></div>
     </div>
@@ -704,14 +712,23 @@
   <div class="panel" id="panel-quiz">
     <div class="section-block gold-left">
       <div class="section-num">Chapter 1 — Assessment</div>
-      <h2 class="section-title" style="margin-bottom:1.2rem;">Test Yourself</h2>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Test Yourself
+        <button class="listen-btn" onclick="speakBtn('Chapter 1 Assessment. Tap the letter in the box to hear it spoken. Then choose its correct primary sound.',this)">Listen to instructions</button>
+      </h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:1.2rem;">Tap the <strong>letter box</strong> to hear it spoken aloud. Then choose its correct primary sound.</p>
       <div class="quiz-card">
         <div class="score-row">
           <span id="score-text">Score: 0 / 0</span>
           <div class="score-track"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
         </div>
-        <p class="quiz-prompt" id="quiz-prompt">What is the PRIMARY SOUND of this letter?</p>
-        <div class="quiz-letter-display" id="quiz-letter">B</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:1rem;">
+          <p class="quiz-prompt" id="quiz-prompt" style="flex:1;">What is the PRIMARY SOUND of this letter?</p>
+          <button class="listen-btn" id="quiz-q-listen" onclick="readQuizQuestion(this)" style="flex-shrink:0;margin-left:0;">Listen to question</button>
+        </div>
+        <div style="text-align:center;margin-bottom:1.2rem;">
+          <div class="quiz-letter-display" id="quiz-letter" onclick="readQuizLetter(this)" style="cursor:pointer;">B</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:5px;font-style:italic;">Tap the letter above to hear it</div>
+        </div>
         <div class="quiz-options" id="quiz-opts"></div>
         <div class="quiz-feedback" id="quiz-feedback"></div>
         <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
@@ -976,9 +993,25 @@ let order = shuffle([...Array(quizData.length).keys()]);
 
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
 
+let currentQ = null;
+function readQuizQuestion(btn) {
+  if (currentQ) speakBtn('What is the primary sound of this letter? The letter is: ' + currentQ.letter, btn);
+}
+function readQuizLetter(el) {
+  if (!currentQ) return;
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.speaking').forEach(b => b.classList.remove('speaking'));
+  el.classList.add('speaking');
+  const utt = new SpeechSynthesisUtterance(currentQ.letter);
+  applyVoice(utt); utt.rate = speechRate * 0.8;
+  utt.onend = () => el.classList.remove('speaking');
+  window.speechSynthesis.speak(utt);
+}
+
 function renderQuestion(){
   answered=false;
   const q = quizData[order[qi]];
+  currentQ = q;
   document.getElementById('quiz-letter').textContent = q.letter;
   document.getElementById('quiz-prompt').textContent = 'What is the PRIMARY SOUND of this letter?';
   const opts = document.getElementById('quiz-opts');
@@ -992,8 +1025,8 @@ function renderQuestion(){
   });
   document.getElementById('quiz-feedback').style.display = 'none';
   document.getElementById('next-btn').style.display = 'none';
-  setTimeout(() => sayWord(q.letter), 300);
-
+  // auto-speak question then letter
+  setTimeout(() => speakBtn('What is the primary sound of this letter? The letter is: ' + q.letter, null), 350);
 }
 
 function checkAnswer(chosen, correct, btn, letter){
