@@ -21,22 +21,30 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
 .hero-stat{text-align:center}
 .hero-stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold);display:block}
 .hero-stat-label{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase}
-.voice-bar{background:#fff;border-bottom:1px solid var(--border);padding:8px 2rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(28,26,23,0.06)}
-.voice-bar-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
-.voice-select{flex:1;min-width:160px;max-width:280px;padding:6px 28px 6px 10px;font-family:'Source Serif 4',serif;font-size:13px;border:1px solid var(--border);border-radius:7px;background:var(--cream);color:var(--ink);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7468' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
-.voice-select:focus{outline:none;border-color:var(--gold)}
+.voice-bar{background:var(--ink);border-bottom:1px solid rgba(184,134,11,0.2);padding:8px 1.5rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(28,26,23,0.3)}
+.vb-brand{font-family:'Playfair Display',serif;color:var(--gold);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;flex-shrink:0;margin-right:6px}
+.voice-bar-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.voice-select{min-width:150px;max-width:260px;padding:5px 26px 5px 9px;font-family:'Source Serif 4',serif;font-size:13px;border:1px solid rgba(255,255,255,0.15);border-radius:7px;background:rgba(255,255,255,0.08);color:#fff;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8860B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center}
+.voice-select option{background:#1C1A17;color:#fff}
 .speed-group{display:flex;align-items:center;gap:4px;flex-shrink:0}
-.speed-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-right:4px}
-.speed-btn{padding:5px 12px;font-family:'Source Serif 4',serif;font-size:12px;font-weight:600;border:1px solid var(--border);border-radius:6px;background:var(--cream);color:var(--muted);cursor:pointer;transition:all .15s}
-.speed-btn.active{background:var(--ink);color:var(--gold);border-color:var(--ink)}
+.speed-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-right:3px}
+.speed-btn{padding:4px 10px;font-family:'Source Serif 4',serif;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,0.15);border-radius:6px;background:transparent;color:rgba(255,255,255,0.5);cursor:pointer;transition:all .15s}
+.speed-btn.active{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 .speed-btn:hover:not(.active){border-color:var(--gold);color:var(--gold)}
-.vtest-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-family:'Source Serif 4',serif;font-size:12px;font-weight:600;border:1px solid rgba(184,134,11,0.4);border-radius:16px;background:var(--gold-light);color:var(--gold);cursor:pointer;transition:all .15s;flex-shrink:0}
-.vtest-btn:hover{background:#ecd98a}
-.vtest-btn.speaking{background:#fde;border-color:var(--rust);color:var(--rust)}
+.vtest-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 13px;font-family:'Source Serif 4',serif;font-size:12px;font-weight:600;border:1px solid rgba(184,134,11,0.5);border-radius:16px;background:rgba(184,134,11,0.12);color:var(--gold);cursor:pointer;transition:all .15s;flex-shrink:0}
+.vtest-btn:hover{background:rgba(184,134,11,0.22)}
+.vtest-btn.speaking{background:rgba(192,57,43,0.2);border-color:var(--rust);color:#ff7b6b}
 .vtest-btn::before{content:"▶";font-size:9px}
 .vtest-btn.speaking::before{content:"◼"}
-.voice-status{font-size:11px;color:var(--forest);font-style:italic;flex-shrink:0;opacity:0;transition:opacity .3s}
+.voice-status{font-size:11px;color:var(--gold);font-style:italic;flex-shrink:0;opacity:0;transition:opacity .3s}
 .voice-status.show{opacity:1}
+.progress-bar-wrap{background:rgba(28,26,23,0.95);border-bottom:1px solid rgba(184,134,11,0.15);padding:7px 1.5rem;display:flex;align-items:center;gap:12px;position:sticky;top:52px;z-index:99}
+.progress-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.progress-track{flex:1;height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#D4A017);border-radius:3px;width:42.1%}
+.progress-count{font-size:12px;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:rgba(184,134,11,0.15);border:1.5px solid rgba(184,134,11,0.4);border-radius:8px;color:var(--gold);font-size:15px;cursor:pointer;transition:all .18s;text-decoration:none;flex-shrink:0}
+.home-btn:hover{background:rgba(184,134,11,0.3);border-color:var(--gold);transform:scale(1.08)}
 .word-tester-section{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding:2.5rem 2rem}
 .word-tester-inner{max-width:760px;margin:0 auto}
 .word-tester-title{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:6px}
@@ -111,6 +119,7 @@ footer strong{color:var(--gold)}
 </div>
 
 <div class="voice-bar">
+  <span class="vb-brand">The Reading Blueprint</span>
   <span class="voice-bar-label">🔊 Voice</span>
   <select class="voice-select" id="voice-select" onchange="onVoiceChange()"><option value="-1">Loading voices...</option></select>
   <div class="speed-group">
@@ -121,6 +130,11 @@ footer strong{color:var(--gold)}
   </div>
   <button class="vtest-btn" id="vtest-btn" onclick="testVoice(this)">Test voice</button>
   <span class="voice-status" id="voice-status">✓ Saved</span>
+</div>
+<div class="progress-bar-wrap">
+  <span class="progress-label">Course Progress</span>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <span class="progress-count">8 of 19 chapters available</span>
 </div>
 
 <div class="word-tester-section">
@@ -143,17 +157,17 @@ footer strong{color:var(--gold)}
   <div class="chapters-grid">
     <a class="chapter-card phase-1" href="chapter-01.html"><span class="ch-num">Chapter 1</span><span class="ch-title">The Alphabet Symphony</span><span class="ch-desc">26 letters, names vs. sounds, uppercase & lowercase, Controlled Blending</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Drill</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
     <a class="chapter-card phase-1" href="chapter-02.html"><span class="ch-num">Chapter 2</span><span class="ch-title">Vowels & Consonants</span><span class="ch-desc">The two families, short vowel sounds, mouth positions, voiced vs. unvoiced</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Sort Activity</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
-    <a class="chapter-card phase-1 coming-soon" href="#"><span class="ch-num">Chapter 3</span><span class="ch-title">Short Vowels & CVC Pattern</span><span class="ch-desc">The most fundamental word architecture — Consonant-Vowel-Consonant</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
-    <a class="chapter-card phase-1 coming-soon" href="#"><span class="ch-num">Chapter 4</span><span class="ch-title">Long Vowel Sounds</span><span class="ch-desc">Silent E pattern, vowel teams, and the magic of long vowels</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
-    <a class="chapter-card phase-1 coming-soon" href="#"><span class="ch-num">Chapter 5</span><span class="ch-title">Sight Words</span><span class="ch-desc">220 high-frequency words — the foundation of reading speed</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-1" href="chapter-03.html"><span class="ch-num">Chapter 3</span><span class="ch-title">Short Vowels & CVC Pattern</span><span class="ch-desc">The most fundamental word architecture — Consonant-Vowel-Consonant</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Drill</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
+    <a class="chapter-card phase-1" href="chapter-04.html"><span class="ch-num">Chapter 4</span><span class="ch-title">Long Vowel Sounds</span><span class="ch-desc">Silent E pattern, vowel teams, and the magic of long vowels</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Drill</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
+    <a class="chapter-card phase-1" href="chapter-05.html"><span class="ch-num">Chapter 5</span><span class="ch-title">Sight Words</span><span class="ch-desc">220 high-frequency words — the foundation of reading speed</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Flashcards</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
   </div>
 
   <div class="phase-header"><span class="phase-num">Phase 2</span><div class="phase-line"></div></div>
   <div style="margin-bottom:1rem;"><div class="phase-title">Cracking the Code</div><div class="phase-desc">Chapters 6–10 · Blends, Digraphs, Phonograms & Syllable Types</div></div>
   <div class="chapters-grid">
-    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 6</span><span class="ch-title">Consonant Blends</span><span class="ch-desc">L-blends, R-blends, S-blends and three-letter blends</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
-    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 7</span><span class="ch-title">Digraphs</span><span class="ch-desc">CH, SH, TH, WH, PH — when two letters make one new sound</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
-    <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 8</span><span class="ch-title">Phonograms</span><span class="ch-desc">The master pattern library — word families that unlock thousands of words</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-2" href="chapter-06.html"><span class="ch-num">Chapter 6</span><span class="ch-title">Consonant Blends</span><span class="ch-desc">L-blends, R-blends, S-blends and three-letter blends</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Drill</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
+    <a class="chapter-card phase-2" href="chapter-07.html"><span class="ch-num">Chapter 7</span><span class="ch-title">Digraphs</span><span class="ch-desc">CH, SH, TH, WH, PH — when two letters make one new sound</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Drill</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
+    <a class="chapter-card phase-2" href="chapter-08.html"><span class="ch-num">Chapter 8</span><span class="ch-title">Phonograms</span><span class="ch-desc">The master pattern library — word families that unlock thousands of words</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Speed Drill</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
     <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 9</span><span class="ch-title">Syllable Types</span><span class="ch-desc">The six structures of every English word</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
     <a class="chapter-card phase-2 coming-soon" href="#"><span class="ch-num">Chapter 10</span><span class="ch-title">Silent Letters & Irregular Patterns</span><span class="ch-desc">The fingerprints of history — why English has silent letters</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
   </div>
