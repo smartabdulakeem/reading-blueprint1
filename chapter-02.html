@@ -30,21 +30,22 @@
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8860B' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
   /* ── VOICE BAR ── */
-  .voice-bar { background:#fff; border-bottom:1px solid var(--border); padding:8px 2rem; display:flex; align-items:center; gap:12px; flex-wrap:wrap; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(28,26,23,0.06); }
-  .voice-bar-label { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; white-space:nowrap; flex-shrink:0; }
-  .voice-select { flex:1; min-width:180px; max-width:300px; padding:6px 28px 6px 10px; font-family:'Source Serif 4',serif; font-size:13px; border:1px solid var(--border); border-radius:7px; background:var(--cream); color:var(--ink); cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7468' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; }
-  .voice-select:focus { outline:none; border-color:var(--gold); }
+  .voice-bar { background:var(--ink); padding:8px 1.5rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:sticky; top:0; z-index:200; box-shadow:0 2px 12px rgba(28,26,23,0.3); }
+  .voice-bar-label { font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; white-space:nowrap; flex-shrink:0; }
+  .vb-brand { font-family:'Playfair Display',serif; color:var(--gold); font-size:13px; letter-spacing:1.5px; text-transform:uppercase; flex-shrink:0; margin-right:6px; }
+  .voice-select { min-width:150px; max-width:260px; padding:5px 26px 5px 9px; font-family:'Source Serif 4',serif; font-size:13px; border:1px solid rgba(255,255,255,0.15); border-radius:7px; background:rgba(255,255,255,0.08); color:#fff; cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8860B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 9px center; }
+  .voice-select option { background:#1C1A17; color:#fff; }
   .speed-group { display:flex; align-items:center; gap:4px; flex-shrink:0; }
-  .speed-label { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-right:4px; }
-  .speed-btn { padding:5px 12px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid var(--border); border-radius:6px; background:var(--cream); color:var(--muted); cursor:pointer; transition:all .15s; }
-  .speed-btn.active { background:var(--ink); color:var(--gold); border-color:var(--ink); }
+  .speed-label { font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:1px; text-transform:uppercase; margin-right:3px; }
+  .speed-btn { padding:4px 10px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid rgba(255,255,255,0.15); border-radius:6px; background:transparent; color:rgba(255,255,255,0.5); cursor:pointer; transition:all .15s; }
+  .speed-btn.active { background:var(--gold); color:var(--ink); border-color:var(--gold); }
   .speed-btn:hover:not(.active) { border-color:var(--gold); color:var(--gold); }
-  .vtest-btn { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid rgba(184,134,11,0.4); border-radius:16px; background:var(--gold-light); color:var(--gold); cursor:pointer; transition:all .15s; flex-shrink:0; }
-  .vtest-btn:hover { background:#ecd98a; }
-  .vtest-btn.speaking { background:#fde; border-color:var(--rust); color:var(--rust); }
+  .vtest-btn { display:inline-flex; align-items:center; gap:5px; padding:5px 13px; font-family:'Source Serif 4',serif; font-size:12px; font-weight:600; border:1px solid rgba(184,134,11,0.5); border-radius:16px; background:rgba(184,134,11,0.12); color:var(--gold); cursor:pointer; transition:all .15s; flex-shrink:0; }
+  .vtest-btn:hover { background:rgba(184,134,11,0.22); }
+  .vtest-btn.speaking { background:rgba(192,57,43,0.2); border-color:var(--rust); color:#ff7b6b; }
   .vtest-btn::before { content:"▶"; font-size:9px; }
   .vtest-btn.speaking::before { content:"◼"; }
-  .voice-status { font-size:11px; color:var(--forest); font-style:italic; flex-shrink:0; opacity:0; transition:opacity .3s; }
+  .voice-status { font-size:11px; color:var(--gold); font-style:italic; flex-shrink:0; opacity:0; transition:opacity .3s; }
   .voice-status.show { opacity:1; }
 
   .site-header { background: var(--ink); padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
@@ -84,6 +85,11 @@
   .callout { background: var(--gold-light); border: 1px solid rgba(184,134,11,0.3); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0; font-size: 14px; line-height: 1.7; }
   .callout strong { color: var(--gold); }
   .callout-blue { background: var(--blue-light); border: 1px solid rgba(26,74,122,0.2); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0; font-size: 14px; line-height: 1.7; }
+  .big-listen { display:flex; align-items:center; gap:8px; padding:10px 18px; font-family:'Source Serif 4',serif; font-size:14px; font-weight:700; border:2px solid var(--gold); border-radius:20px; background:var(--gold-light); color:var(--ink); cursor:pointer; transition:all .2s; margin-top:12px; width:fit-content; }
+  .big-listen:hover { background:#EDD97A; }
+  .big-listen.speaking { background:#fce4e4; border-color:var(--rust); color:var(--rust); }
+  .big-listen::before { content:"🔊"; font-size:14px; }
+  .big-listen.speaking::before { content:"⏹"; }
 
   /* ── VOWEL / CONSONANT DISPLAY ── */
   .family-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 1rem 0; }
@@ -173,12 +179,8 @@
 </head>
 <body>
 
-<header class="site-header">
-  <span class="brand">The Reading Blueprint</span>
-  <span class="phase-tag">Phase 1 — Sound Foundations</span>
-</header>
-
 <div class="voice-bar">
+  <span class="vb-brand">The Reading Blueprint</span>
   <span class="voice-bar-label">🔊 Voice</span>
   <select class="voice-select" id="voice-select" onchange="onVoiceChange()"><option value="-1">Loading voices...</option></select>
   <div class="speed-group">
@@ -291,15 +293,17 @@
         </thead>
         <tbody id="vowel-rows"></tbody>
       </table>
+      <button class="big-listen" onclick="speakBtn('Short vowel sounds. A says a, as in ant, cat, hat. E says e, as in egg, bed, red. I says i, as in igloo, sit, big. O says o, as in on, hot, dog. U says u, as in up, bus, sun.',this)">Listen to all 5 short vowels</button>
     </div>
 
     <div class="section-block rust-left">
       <div class="section-num">2.5</div>
       <h2 class="section-title">Mouth Positions
-        <button class="listen-btn" onclick="speakBtn('Learning the physical position of your mouth for each vowel sound will help you hear the difference between sounds that look similar on paper. Practice in front of a mirror. For A: mouth opens wide, jaw drops, tongue low and flat. For E: lips slightly spread as if smiling, tongue mid-height. For I: lips spread further, tongue near top of mouth. For O: lips form a small circle, tongue pulled back. For U: lips slightly rounded, relaxed, tongue middle position.',this)">Listen</button>
+        <button class="listen-btn" onclick="speakBtn('Learning the physical position of your mouth for each vowel sound will help you hear the difference between sounds that look similar on paper. Practice in front of a mirror. For A: mouth opens wide, jaw drops, tongue low and flat. For E: lips slightly spread as if smiling, tongue mid-height. For I: lips spread further, tongue rises near roof of mouth. For O: lips form a small rounded circle, tongue pulled back. For U: lips slightly rounded and relaxed, tongue in middle position.',this)">Listen</button>
       </h2>
-      <div class="section-body"><p>Practice in front of a mirror. Feel your mouth change position as you move through each vowel.</p></div>
+      <div class="section-body"><p>Practice in front of a mirror. Feel your mouth change position as you move through each vowel. Tap any card to hear the description.</p></div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:1rem;" id="mouth-cards"></div>
+      <button class="big-listen" onclick="speakBtn('Mouth positions for each short vowel. A: jaw drops, mouth wide open, tongue low and flat. E: lips slightly spread as if beginning to smile, tongue mid-height. I: lips spread further, tongue rises near roof of mouth. O: lips form a small rounded circle, tongue pulled back. U: lips slightly rounded and relaxed, tongue in middle position.',this)">Listen to all mouth positions</button>
     </div>
 
   </div>
@@ -328,6 +332,7 @@
       <div class="section-body" style="margin-top:1rem;">
         <p>This distinction will become important when you study blends and digraphs in Phase 2.</p>
       </div>
+      <button class="big-listen" onclick="speakBtn('Voiced consonants — you feel vibration in your throat: b, d, g, v, z, and the TH in this. Unvoiced consonants — no vibration, just air: p, t, k, f, s, and the TH in thin.',this)">Listen to voiced vs unvoiced</button>
     </div>
 
     <div class="section-block forest-left">
@@ -357,6 +362,7 @@
         <button class="listen-btn" onclick="speakBtn('Sort each letter into the correct column. Tap a letter to place it. Vowels go in the gold column on the left. Consonants go in the green column on the right.',this)">Instructions</button>
       </h2>
       <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">Tap a letter, then tap the correct column to place it. Vowel or Consonant?</p>
+      <button class="big-listen" onclick="speakBtn('Sorting activity. There are 26 letters. 5 are vowels: A, E, I, O, U. The remaining 21 are all consonants. Tap each letter, then tap the correct column to place it.',this)">Listen to instructions</button>
 
       <div class="sort-area">
         <div class="sort-bin vowel-bin" id="bin-vowel" onclick="placeLetter('vowel')">
@@ -387,6 +393,7 @@
         <button class="listen-btn" onclick="readFullText(this)">Read full text</button>
       </h2>
       <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">Every word uses only sounds you have been taught. Tap any word to hear it. Read the whole passage aloud three times until it flows smoothly.</p>
+      <button class="big-listen" onclick="speakBtn('Read Aloud instructions. Tap any word in the passage to hear it spoken. Then read the whole passage aloud yourself. Do this three times — each time it should feel smoother and more natural.',this)">Listen to instructions</button>
       <div class="controlled-text-box" id="controlled-text"></div>
       <div style="margin-top:1rem;font-size:13px;color:var(--muted);">
         <strong>Tip:</strong> Use Controlled Blending from Chapter 1 — sound each letter, then blend.
@@ -398,14 +405,23 @@
   <div class="panel" id="panel-quiz">
     <div class="section-block gold-left">
       <div class="section-num">Chapter 2 — Assessment</div>
-      <h2 class="section-title" style="margin-bottom:1.2rem;">Test Yourself</h2>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Test Yourself
+        <button class="listen-btn" onclick="speakBtn('Chapter 2 Assessment. Tap the letter in the box to hear it. Then answer the question.',this)">Listen to instructions</button>
+      </h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:1.2rem;">Tap the <strong>letter box</strong> to hear it spoken aloud. Then choose the correct answer.</p>
       <div class="quiz-card">
         <div class="score-row">
           <span id="score-text">Score: 0 / 0</span>
           <div class="score-track"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
         </div>
-        <p class="quiz-prompt" id="quiz-prompt">Loading...</p>
-        <div class="quiz-letter-display" id="quiz-letter" style="font-size:36px;padding:0.75rem;letter-spacing:2px;">—</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:1rem;">
+          <p class="quiz-prompt" id="quiz-prompt" style="flex:1;">Loading...</p>
+          <button class="listen-btn" id="quiz-q-listen" onclick="readQuizQuestion(this)" style="flex-shrink:0;margin-left:0;">Listen to question</button>
+        </div>
+        <div style="text-align:center;margin-bottom:1.2rem;">
+          <div class="quiz-letter-display" id="quiz-letter" onclick="readQuizLetter(this)" style="font-size:36px;padding:0.75rem;letter-spacing:2px;cursor:pointer;">—</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:5px;font-style:italic;">Tap the letter above to hear it</div>
+        </div>
         <div class="quiz-options" id="quiz-opts"></div>
         <div class="quiz-feedback" id="quiz-feedback"></div>
         <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
@@ -687,9 +703,26 @@ let qi=0, score=0, answered=false;
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
 let order = shuffle([...Array(quizData.length).keys()]);
 
+let currentQuizQ = null;
+function readQuizQuestion(btn) {
+  if (currentQuizQ) speakBtn(currentQuizQ.q, btn);
+}
+function readQuizLetter(el) {
+  if (currentQuizQ) {
+    document.querySelectorAll('.speaking').forEach(b => b.classList.remove('speaking'));
+    el.classList.add('speaking');
+    const utt = new SpeechSynthesisUtterance(currentQuizQ.letter);
+    applyVoice(utt); utt.rate = speechRate * 0.85;
+    utt.onend = () => el.classList.remove('speaking');
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utt);
+  }
+}
+
 function renderQuestion(){
   answered = false;
   const q = quizData[order[qi]];
+  currentQuizQ = q;
   document.getElementById('quiz-prompt').textContent = q.q;
   document.getElementById('quiz-letter').textContent = q.letter;
   const opts = document.getElementById('quiz-opts');
@@ -703,7 +736,8 @@ function renderQuestion(){
   });
   document.getElementById('quiz-feedback').style.display = 'none';
   document.getElementById('next-btn').style.display = 'none';
-  if (q.letter !== '?') setTimeout(() => sayWord(q.letter), 300);
+  // auto-speak question then letter
+  setTimeout(() => speakBtn(q.q + '. The answer is: ' + q.letter, null), 350);
 }
 
 function checkAnswer(chosen, correct, btn){
