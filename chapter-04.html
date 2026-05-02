@@ -182,12 +182,17 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
 .nav-lnk:hover{border-color:var(--ink);color:var(--ink);}
 .nav-lnk.next{background:var(--ink);color:var(--gold);border-color:var(--ink);}
 .phase-badge{font-size:11px;background:var(--gold-light);color:var(--gold);border:1px solid rgba(184,134,11,0.3);padding:4px 12px;border-radius:12px;font-weight:600;}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:rgba(184,134,11,0.15);border:1.5px solid rgba(184,134,11,0.45);border-radius:8px;color:var(--gold);font-size:15px;cursor:pointer;transition:all .2s;text-decoration:none;flex-shrink:0;margin-right:4px;position:relative;}
+.home-btn:hover{background:rgba(184,134,11,0.3);border-color:var(--gold);transform:scale(1.08);}
+.home-btn::after{content:"Home";position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--gold);font-size:10px;padding:2px 7px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;border:1px solid rgba(184,134,11,0.3);}
+.home-btn:hover::after{opacity:1;}
 </style>
 </head>
 <body>
 
 <!-- VOICE BAR -->
 <div class="voice-bar">
+  <a class="home-btn" href="index.html" title="Back to Home">🏠</a>
   <span class="vb-brand">The Reading Blueprint</span>
   <span class="vb-label">🔊 Voice</span>
   <select class="voice-select" id="voice-select" onchange="onVoiceChange()">
