@@ -55,11 +55,6 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
 .listen-btn.speaking{border-color:var(--rust);color:var(--rust);background:#fff5f5;}
 .listen-btn::before{content:"▶";font-size:9px;}
 .listen-btn.speaking::before{content:"◼";}
-.big-listen{display:flex;align-items:center;gap:8px;padding:10px 18px;font-family:'Source Serif 4',serif;font-size:14px;font-weight:700;border:2px solid var(--gold);border-radius:20px;background:var(--gold-light);color:var(--ink);cursor:pointer;transition:all .2s;margin-top:12px;width:fit-content;}
-.big-listen:hover{background:#EDD97A;}
-.big-listen.speaking{background:#fce4e4;border-color:var(--rust);color:var(--rust);}
-.big-listen::before{content:"🔊";font-size:14px;}
-.big-listen.speaking::before{content:"⏹";}
 .callout{background:var(--gold-light);border:1px solid rgba(184,134,11,0.3);border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0;font-size:14px;line-height:1.7;}
 .step-row{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border-radius:7px;background:var(--cream);font-size:14px;margin-bottom:6px;line-height:1.6;}
 .step-n{font-size:11px;font-weight:700;color:var(--gold);width:20px;flex-shrink:0;margin-top:2px;}
@@ -137,11 +132,16 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
 .nav-lnk:hover{border-color:var(--ink);color:var(--ink);}
 .nav-lnk.next{background:var(--ink);color:var(--gold);border-color:var(--ink);}
 .phase-badge{font-size:11px;background:var(--gold-light);color:var(--gold);border:1px solid rgba(184,134,11,0.3);padding:4px 12px;border-radius:12px;font-weight:600;}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:rgba(184,134,11,0.15);border:1.5px solid rgba(184,134,11,0.45);border-radius:8px;color:var(--gold);font-size:15px;cursor:pointer;transition:all .2s;text-decoration:none;flex-shrink:0;margin-right:4px;position:relative;}
+.home-btn:hover{background:rgba(184,134,11,0.3);border-color:var(--gold);transform:scale(1.08);}
+.home-btn::after{content:"Home";position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--gold);font-size:10px;padding:2px 7px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;border:1px solid rgba(184,134,11,0.3);}
+.home-btn:hover::after{opacity:1;}
 </style>
 </head>
 <body>
 
 <div class="voice-bar">
+  <a class="home-btn" href="index.html" title="Back to Home">🏠</a>
   <span class="vb-brand">The Reading Blueprint</span>
   <span class="vb-label">🔊 Voice</span>
   <select class="voice-select" id="voice-select" onchange="onVoiceChange()">
@@ -196,7 +196,6 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
           <div class="cvc-ex" onclick="sayWord('run',this)"><div class="cvc-word">run</div><div class="cvc-break">/r/ + /u/ + /n/</div></div>
         </div>
       </div>
-      <button class="big-listen" onclick="speakBtn('The CVC Rule. In a CVC word, the vowel in the middle always makes its short sound. cat — k, short A, t. sit — s, short I, t. hop — h, short O, p. bed — b, short E, d. run — r, short U, n.',this)">Listen to the CVC Rule</button>
     </div>
     <div class="sb rl">
       <div class="sec-num">How to Read a CVC Word</div>
@@ -209,7 +208,6 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
         <div class="step-row"><span class="step-n">3</span>Sound out from <strong>left to right</strong> using Controlled Blending.</div>
         <div class="step-row"><span class="step-n">4</span><strong>Blend</strong> all three sounds together to read the word.</div>
       </div>
-      <button class="big-listen" onclick="speakBtn('How to read a CVC word. Step 1: find the middle letter. Is it A, E, I, O, or U? Step 2: that is your vowel — it makes its short sound. Step 3: sound out left to right using Controlled Blending. Step 4: blend all three sounds together to read the word.',this)">Listen to all 4 steps</button>
     </div>
     <div class="sb fl">
       <div class="sec-num">Chapter Goals</div>
@@ -228,8 +226,7 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
 
   <!-- SHORT VOWELS -->
   <div class="panel" id="panel-vowels">
-    <p style="font-size:14px;color:var(--muted);margin-bottom:0.5rem;">Tap any word to hear it. The coloured letter is the short vowel sound. Use the Listen button to hear each rule explained.</p>
-    <button class="big-listen" style="margin-bottom:1.2rem;" onclick="speakBtn('Short Vowels. There are five short vowel sounds. Short A as in ant, cat, hat. Short E as in egg, bed, red. Short I as in igloo, sit, big. Short O as in on, hot, dog. Short U as in up, bus, sun. Tap each sound button to hear the rule, then tap each word card to hear it spoken.',this)">Listen to all 5 short vowels</button>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:1.2rem;">Tap any word to hear it. The coloured letter is the short vowel sound. Use the Listen button to hear each rule explained.</p>
     <div id="vowel-sections"></div>
   </div>
 
@@ -281,23 +278,14 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
   <div class="panel" id="panel-quiz">
     <div class="sb gl">
       <div class="sec-num">Chapter 3 — Assessment</div>
-      <h2 class="sec-title" style="margin-bottom:0.5rem;">Test Yourself
-        <button class="listen-btn" onclick="speakBtn('Chapter 3 Assessment. Tap the word or pattern in the box to hear it. Then answer the question about short vowels and the CVC pattern.',this)">Listen to instructions</button>
-      </h2>
-      <p style="font-size:14px;color:var(--muted);margin-bottom:1.2rem;">Tap the <strong>word box</strong> to hear it spoken aloud. Then choose the correct answer.</p>
+      <h2 class="sec-title" style="margin-bottom:1.2rem;">Test Yourself</h2>
       <div class="quiz-card">
         <div class="score-row">
           <span id="score-text">Score: 0 / 0</span>
           <div class="score-track"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
         </div>
-        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:1rem;">
-          <p class="quiz-prompt" id="quiz-prompt" style="flex:1;">Loading...</p>
-          <button class="listen-btn" id="quiz-q-btn" onclick="readQuizQuestion(this)" style="flex-shrink:0;margin-left:0;">Listen to question</button>
-        </div>
-        <div style="text-align:center;margin-bottom:1.2rem;">
-          <div class="quiz-display" id="quiz-display" onclick="readQuizWord(this)" style="cursor:pointer;">—</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:5px;font-style:italic;">Tap the word above to hear it</div>
-        </div>
+        <p class="quiz-prompt" id="quiz-prompt">Loading...</p>
+        <div class="quiz-display" id="quiz-display">—</div>
         <div class="quiz-opts" id="quiz-opts"></div>
         <div class="quiz-fb" id="quiz-fb"></div>
         <button class="next-btn" id="next-btn" onclick="nextQ()">Next →</button>
@@ -538,18 +526,6 @@ function buildMiniTexts(){
 }
 
 // QUIZ
-let currentQuizQ=null;
-function readQuizQuestion(btn){if(currentQuizQ)speakBtn(currentQuizQ.q,btn);}
-function readQuizWord(el){
-  if(!currentQuizQ)return;
-  window.speechSynthesis.cancel();
-  document.querySelectorAll('.speaking').forEach(b=>b.classList.remove('speaking'));
-  el.classList.add('speaking');
-  const u=new SpeechSynthesisUtterance(currentQuizQ.d);applyVoice(u);u.rate=speechRate*0.85;
-  u.onend=()=>el.classList.remove('speaking');
-  window.speechSynthesis.speak(u);
-}
-
 const quizData=[
   {q:'What does the CVC rule say about the middle vowel?',d:'CVC',correct:'It makes its SHORT sound',opts:['It makes its SHORT sound','It makes its LONG sound','It is silent','It says its name']},
   {q:'Which short vowel sound is in this word?',d:'cat',correct:'/a/ as in ant',opts:['/a/ as in ant','/e/ as in egg','/i/ as in igloo','/u/ as in up']},
@@ -568,10 +544,8 @@ let order=shuffle([...Array(quizData.length).keys()]);
 function renderQ(){
   answered=false;
   const q=quizData[order[qi]];
-  currentQuizQ=q;
   document.getElementById('quiz-prompt').textContent=q.q;
   document.getElementById('quiz-display').textContent=q.d;
-  document.getElementById('quiz-display').classList.remove('speaking');
   const opts=document.getElementById('quiz-opts');opts.innerHTML='';
   shuffle([...q.opts]).forEach(opt=>{
     const b=document.createElement('button');b.className='q-opt';b.textContent=opt;
@@ -580,7 +554,7 @@ function renderQ(){
   });
   document.getElementById('quiz-fb').style.display='none';
   document.getElementById('next-btn').style.display='none';
-  setTimeout(()=>speakBtn(q.q+'. The word is: '+q.d,null),350);
+  setTimeout(()=>sayWord(q.d,null),350);
 }
 function checkQ(chosen,correct,btn){
   if(answered)return;answered=true;
