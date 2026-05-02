@@ -100,9 +100,49 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:va
 .about-text{font-size:13px;color:var(--muted);line-height:1.6}
 footer{background:var(--ink);color:rgba(255,255,255,0.4);text-align:center;padding:1.5rem;font-size:13px;font-style:italic;border-top:3px solid var(--gold)}
 footer strong{color:var(--gold)}
+
+/* ── LOGIN OVERLAY ── */
+#login-overlay{position:fixed;inset:0;background:var(--ink);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1.5rem;}
+#login-overlay.hidden{display:none;}
+.login-box{background:var(--paper);border-radius:16px;padding:2.5rem 2rem;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(184,134,11,0.2);}
+.login-logo{font-family:'Playfair Display',serif;font-size:13px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;}
+.login-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:6px;}
+.login-title em{font-style:italic;color:var(--gold);}
+.login-sub{font-size:14px;color:var(--muted);margin-bottom:2rem;line-height:1.6;}
+.login-divider{width:40px;height:2px;background:var(--gold);margin:0 auto 2rem;}
+.login-field-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:left;margin-bottom:6px;display:block;}
+.login-input{width:100%;padding:12px 16px;font-family:'Source Serif 4',serif;font-size:16px;border:1.5px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);outline:none;transition:border-color .2s;letter-spacing:2px;margin-bottom:1rem;}
+.login-input:focus{border-color:var(--gold);}
+.login-input.error{border-color:var(--rust);background:#fff5f5;}
+.login-btn{width:100%;padding:14px;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;background:var(--ink);color:var(--gold);border:none;border-radius:10px;cursor:pointer;transition:all .2s;letter-spacing:1px;}
+.login-btn:hover{background:#2C2A27;transform:translateY(-1px);}
+.login-btn:active{transform:translateY(0);}
+.login-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+.login-error{font-size:13px;color:var(--rust);margin-top:10px;min-height:20px;font-weight:600;}
+.login-locked{font-size:13px;color:var(--rust);margin-top:10px;font-weight:600;display:none;}
+.login-attempts{font-size:12px;color:var(--muted);margin-top:8px;}
+.login-footer{font-size:12px;color:var(--muted);margin-top:1.5rem;line-height:1.6;}
+.login-footer strong{color:var(--gold);}
 </style>
 </head>
 <body>
+<!-- LOGIN OVERLAY -->
+<div id="login-overlay">
+  <div class="login-box">
+    <div class="login-logo">By Abdul-Akeem Smart</div>
+    <h1 class="login-title">The <em>Reading</em><br>Blueprint</h1>
+    <div class="login-divider"></div>
+    <p class="login-sub">A complete, systematic guide from first sounds to full fluency — built on the Science of Reading.</p>
+    <label class="login-field-label" for="login-pwd">Access Password</label>
+    <input class="login-input" type="password" id="login-pwd" placeholder="Enter password" autocomplete="off"
+      onkeydown="if(event.key==='Enter')doLogin()" oninput="clearLoginError()"/>
+    <button class="login-btn" id="login-btn" onclick="doLogin()">Access Course →</button>
+    <div class="login-error" id="login-error"></div>
+    <div class="login-locked" id="login-locked">🔒 Too many attempts. Please contact Abdul-Akeem Smart to regain access.</div>
+    <div class="login-attempts" id="login-attempts"></div>
+    <div class="login-footer"><strong>Approved learners only.</strong><br>To request access, contact the course author.</div>
+  </div>
+</div>
 
 <div class="hero">
   <div class="hero-pattern"></div>
@@ -134,8 +174,8 @@ footer strong{color:var(--gold)}
 
 <div class="progress-strip">
   <span class="prog-label">Course Progress</span>
-  <div class="prog-track"><div class="prog-fill" style="width:89.5%;"></div></div>
-  <span class="prog-count">17 / 19 Chapters Built</span>
+  <div class="prog-track"><div class="prog-fill" style="width:100%;"></div></div>
+  <span class="prog-count">19 / 19 Chapters Complete</span>
 </div>
 
 <div class="word-tester-section">
@@ -188,8 +228,8 @@ footer strong{color:var(--gold)}
   <div class="chapters-grid">
     <a class="chapter-card phase-4" href="chapter-16.html"><span class="ch-num">Chapter 16</span><span class="ch-title">Reading Comprehension</span><span class="ch-desc">Five levels of understanding — from literal to applied</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">SQ3R</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
     <a class="chapter-card phase-4" href="chapter-17.html"><span class="ch-num">Chapter 17</span><span class="ch-title">Prosody & Intonation</span><span class="ch-desc">The music of reading — rhythm, stress, pitch, and phrasing</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Stress Demo</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
-    <a class="chapter-card phase-4 coming-soon" href="#"><span class="ch-num">Chapter 18</span><span class="ch-title">Vocabulary Development</span><span class="ch-desc">Building your word wealth — the four vocabulary tiers</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
-    <a class="chapter-card phase-4 coming-soon" href="#"><span class="ch-num">Chapter 19</span><span class="ch-title">The Expert Reader</span><span class="ch-desc">Metacognition, critical reading, and a lifelong reading programme</span><div class="ch-tags"><span class="ch-tag tag-coming">Coming soon</span></div></a>
+    <a class="chapter-card phase-4" href="chapter-18.html"><span class="ch-num">Chapter 18</span><span class="ch-title">Vocabulary Development</span><span class="ch-desc">Building your word wealth — the four vocabulary tiers</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Word Map</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
+    <a class="chapter-card phase-4" href="chapter-19.html"><span class="ch-num">Chapter 19</span><span class="ch-title">The Expert Reader</span><span class="ch-desc">Metacognition, critical reading, and a lifelong reading programme</span><div class="ch-tags"><span class="ch-tag tag-audio">Audio</span><span class="ch-tag tag-drill">Critical Reading</span><span class="ch-tag tag-quiz">Quiz</span></div><span class="ch-arrow">→</span></a>
   </div>
 
   <div class="about-strip">
@@ -273,6 +313,103 @@ if(window.speechSynthesis){
   loadVoices();
 }
 buildTesterChips();
+
+// ── LOGIN SYSTEM ──
+const RB_PWD_HASH = '5f4dcc3b5aa765d61d8327deb882cf99'; // not real hash — using btoa instead
+const CORRECT = btoa('Smart2020');
+const SESSION_KEY = 'rbAuth';
+const ATTEMPTS_KEY = 'rbLoginAttempts';
+const LOCK_KEY = 'rbLockUntil';
+const SESSION_HOURS = 24;
+
+function checkAuth(){
+  const stored = localStorage.getItem(SESSION_KEY);
+  if(stored){
+    const data = JSON.parse(stored);
+    if(Date.now() < data.expiry){
+      document.getElementById('login-overlay').classList.add('hidden');
+      return;
+    } else {
+      localStorage.removeItem(SESSION_KEY);
+    }
+  }
+  // Check if locked
+  const lockUntil = parseInt(localStorage.getItem(LOCK_KEY)||'0');
+  if(Date.now() < lockUntil){
+    showLocked();
+  }
+  // Show overlay
+  document.getElementById('login-overlay').classList.remove('hidden');
+  setTimeout(()=>document.getElementById('login-pwd').focus(), 100);
+}
+
+function doLogin(){
+  const lockUntil = parseInt(localStorage.getItem(LOCK_KEY)||'0');
+  if(Date.now() < lockUntil){ showLocked(); return; }
+
+  const btn = document.getElementById('login-btn');
+  const input = document.getElementById('login-pwd');
+  const val = input.value.trim();
+  if(!val) return;
+
+  let attempts = parseInt(localStorage.getItem(ATTEMPTS_KEY)||'0');
+
+  if(btoa(val) === CORRECT){
+    // Success
+    localStorage.removeItem(ATTEMPTS_KEY);
+    localStorage.removeItem(LOCK_KEY);
+    const expiry = Date.now() + SESSION_HOURS * 60 * 60 * 1000;
+    localStorage.setItem(SESSION_KEY, JSON.stringify({expiry}));
+    btn.textContent = '✓ Welcome!';
+    btn.style.background = 'var(--forest)';
+    setTimeout(()=>{
+      document.getElementById('login-overlay').classList.add('hidden');
+    }, 600);
+  } else {
+    // Wrong password
+    attempts++;
+    localStorage.setItem(ATTEMPTS_KEY, attempts);
+    input.classList.add('error');
+    const remaining = 3 - attempts;
+    if(attempts >= 3){
+      // Lock for 30 minutes
+      localStorage.setItem(LOCK_KEY, Date.now() + 30*60*1000);
+      localStorage.removeItem(ATTEMPTS_KEY);
+      showLocked();
+    } else {
+      document.getElementById('login-error').textContent =
+        'Incorrect password. ' + remaining + ' attempt' + (remaining===1?'':'s') + ' remaining.';
+      document.getElementById('login-attempts').textContent = '';
+    }
+  }
+}
+
+function clearLoginError(){
+  document.getElementById('login-input' in window ? 'login-input' : 'login-pwd')?.classList?.remove('error');
+  document.getElementById('login-error').textContent = '';
+}
+
+function showLocked(){
+  document.getElementById('login-btn').disabled = true;
+  document.getElementById('login-pwd').disabled = true;
+  document.getElementById('login-locked').style.display = 'block';
+  document.getElementById('login-error').textContent = '';
+  document.getElementById('login-attempts').textContent = '';
+  // Auto-unlock check
+  const lockUntil = parseInt(localStorage.getItem(LOCK_KEY)||'0');
+  const ms = lockUntil - Date.now();
+  if(ms > 0) setTimeout(()=>{
+    localStorage.removeItem(LOCK_KEY);
+    document.getElementById('login-btn').disabled = false;
+    document.getElementById('login-pwd').disabled = false;
+    document.getElementById('login-locked').style.display = 'none';
+    document.getElementById('login-pwd').focus();
+  }, ms);
+}
+
+// Run on load
+checkAuth();
+
 </script>
 </body>
 </html>
